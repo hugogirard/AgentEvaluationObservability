@@ -2,6 +2,11 @@ name: Create Azure resources
 
 on:
     workflow_dispatch:
+    push:
+        branches:
+            - main
+        paths:
+            - "infra/**"
 
 jobs:
     create-azure-resources:
