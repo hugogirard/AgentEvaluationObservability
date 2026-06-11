@@ -1,0 +1,35 @@
+name: Create Azure resources
+
+on:
+    workflow_dispatch:
+
+jobs:
+    create-azure-resources:
+        env:
+            REGION: "canadaeast"
+            AZURE_CORE_OUTPUT: "none"
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v6
+
+            - name: Azure Login
+              uses: Azure/login@v3.0.0
+              with:
+                  creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+            # Temp fix
+            # - name: bicep tmp fix
+            #   run: az config set bicep.use_binary_from_path=false
+
+            - name: deploy
+              id: createResources
+              run: |
+                  az deployment sub create \
+                    --location ${{ env.REGION }} \
+                    --name ${{ github.run_id }} \
+                    --template-file ./infra/main.bicep \
+                    --parameters ./infra/main.bicepparam \
+                    --query 'properties.outputs' \
+                    --output json > outputs.json
