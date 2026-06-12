@@ -12,6 +12,30 @@ param location string
 @description('The name of the resource group')
 param resourceGroupName string
 
+@description('The model for the chat completion')
+param chatCompleteionDeploymentName string
+
+@description('The SKU of the chat completion model')
+param chatDeploymentSku string
+
+@description('The properties of the chat model')
+param chatModelProperties object
+
+@description('The chat model SKU capacity')
+param chatModelSkuCapacity int
+
+@description('The embedding deployment name')
+param embeddingDeploymentName string
+
+@description('The embedding deployment SKU')
+param embeddingDeploymentSku string
+
+@description('The embedding model properties')
+param embeddingModelProperties object
+
+@description('The embedding model SKU capacity')
+param embeddingModelSkuCapacity int
+
 // tags that should be applied to all resources.
 var tags = {
   // Tag all resources with the environment name.
@@ -45,6 +69,33 @@ module foundry 'core/ai/foundry.bicep' = {
     accountName: '${abbrs.cognitiveServicesAccounts}${resourceToken}'
     tags: tags
   }
+}
+
+module chatCompletionModel 'core/ai/model.deployment.bicep' = {
+  scope: rg
+  params: {
+    aiFoundryAccountName: foundry.outputs.resourceName
+    deploymentName: chatCompleteionDeploymentName
+    deploymentSku: chatDeploymentSku
+    modelProperties: chatModelProperties
+    skuCapacity: chatModelSkuCapacity
+    versionUpgradeOption: 'OnceNewDefaultVersionAvailable'
+  }
+}
+
+module embeddingnModel 'core/ai/model.deployment.bicep' = {
+  scope: rg
+  params: {
+    aiFoundryAccountName: foundry.outputs.resourceName
+    deploymentName: embeddingDeploymentName
+    deploymentSku: embeddingDeploymentSku
+    modelProperties: embeddingModelProperties
+    skuCapacity: embeddingModelSkuCapacity
+    versionUpgradeOption: 'NoAutoUpgrade'
+  }
+  dependsOn: [
+    chatCompletionModel // To avoid deployment concurrency and fail the bicep
+  ]
 }
 
 module storage 'core/data/storage.bicep' = {
