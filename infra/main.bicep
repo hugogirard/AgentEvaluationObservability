@@ -37,3 +37,21 @@ module aisearch 'core/ai/search.bicep' = {
     aiSearchResourceName: '${abbrs.searchSearchServices}${resourceToken}'
   }
 }
+
+module foundry 'core/ai/foundry.bicep' = {
+  scope: rg
+  params: {
+    location: location
+    accountName: '${abbrs.cognitiveServicesAccounts}${resourceToken}'
+    tags: tags
+  }
+}
+
+module storage 'core/data/storage.bicep' = {
+  scope: rg
+  params: {
+    location: location
+    tags: tags
+    storageResourceName: '${abbrs.storageStorageAccounts}${resourceToken}'
+  }
+}
