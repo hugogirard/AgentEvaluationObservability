@@ -1,0 +1,22 @@
+name: Deploy MCP Server
+
+on:
+    workflow_dispatch:
+
+jobs:
+    build-and-deploy-mcp-server:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v6
+
+            - name: Azure Login
+              uses: Azure/login@v3.0.0
+              with:
+                  creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+            - name: Build and Push image
+              run: |
+                  az acr login -n ${{ secrets.CONTAINER_REGISTRY_NAME }}
+                  az acr build -r ${{ secrets.CONTAINER_REGISTRY_NAME }} -t mage-guild-api:${{ github.sha }} -t mage-guild-api:latest --build-arg BUILDKIT_INLINE_CACHE=1 .
+              working-directory: src/APIS/mage-guild

@@ -38,3 +38,11 @@ jobs:
                     --parameters ./infra/main.bicepparam \
                     --query 'properties.outputs' \
                     --output json > outputs.json
+
+                  echo "CONTAINER_REGISTRY_NAME=$(jq -r '.CONTAINER_REGISTRY_NAME.value' outputs.json)" >> $GITHUB_OUTPUT
+
+            - name: Set secrets using gh CLI
+              env:
+                  GH_TOKEN: ${{ secrets.PA_TOKEN }}
+              run: |
+                  gh secret set CONTAINER_REGISTRY_NAME --body "${{ steps.createResources.outputs.CONTAINER_REGISTRY_NAME }}"

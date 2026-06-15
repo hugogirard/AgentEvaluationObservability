@@ -106,3 +106,14 @@ module storage 'core/data/storage.bicep' = {
     storageResourceName: '${abbrs.storageStorageAccounts}${resourceToken}'
   }
 }
+
+module registry 'core/container/registry.bicep' = {
+  scope: rg
+  params: {
+    location: location
+    tags: tags
+    resourceName: '${abbrs.containerRegistryRegistries}${resourceToken}'
+  }
+}
+
+output CONTAINER_REGISTRY_NAME string = registry.outputs.resourceName
