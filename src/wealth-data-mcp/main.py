@@ -1,7 +1,18 @@
 from fastmcp import FastMCP
 from fastmcp.server.providers import FileSystemProvider
+from routes import health_endpoint
+from middlewares import SubscriptionKeyMiddleware
 from pathlib import Path
+from dotenv import load_dotenv
+from starlette.middleware.cors import CORSMiddleware
+from starlette.routing import Route
 import uvicorn
+import os
+
+load_dotenv(override=True)
+
+# Read the expected key from environment variable
+MCP_SERVER_KEY = os.environ["MCP_SERVER_KEY"]
 
 instructions = """
 You are a wealth-advisory assistant backed by the Wealth MCP Server.
@@ -40,7 +51,9 @@ mcp = FastMCP("Wealth MCP Server",
               instructions=instructions,
               providers=providers)
 
+mcp.add_middleware(SubscriptionKeyMiddleware(api_key=MCP_SERVER_KEY))
+
 app = mcp.http_app()
 
 if __name__ == "__main__":    
-    mcp.run(transport='http',port=9000)
+    uvicorn.run(app, host='0.0.0.0', port=9000)    
