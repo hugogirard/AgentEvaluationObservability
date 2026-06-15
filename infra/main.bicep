@@ -142,3 +142,4 @@ module rbac 'core/RBAC/acr.bicep' = {
 }
 
 output CONTAINER_REGISTRY_NAME string = registry.outputs.resourceName
+output MCP_SERVER_NAME string = mcpServer.outputs.resourceName

@@ -46,3 +46,4 @@ jobs:
                   GH_TOKEN: ${{ secrets.PA_TOKEN }}
               run: |
                   gh secret set CONTAINER_REGISTRY_NAME --body "${{ steps.createResources.outputs.CONTAINER_REGISTRY_NAME }}"
+                  gh secret set MCP_SERVER_NAME --body "${{ steps.createResources.outputs.MCP_SERVER_NAME }}"

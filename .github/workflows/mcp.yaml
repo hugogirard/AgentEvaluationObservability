@@ -25,3 +25,8 @@ jobs:
                   az acr login -n ${{ secrets.CONTAINER_REGISTRY_NAME }}
                   az acr build -r ${{ secrets.CONTAINER_REGISTRY_NAME }} -t wealth-mcp-server:${{ github.sha }} -t wealth-mcp-server:latest --build-arg BUILDKIT_INLINE_CACHE=1 .
               working-directory: src/wealth-data-mcp
+
+            - uses: azure/webapps-deploy@v2
+              with:
+                  app-name: ${{secrets.MCP_SERVER_NAME}}
+                  images: "${{secrets.CONTAINER_REGISTRY_NAME}}.azurecr.io/wealth-mcp-server:${{ github.sha }}"
