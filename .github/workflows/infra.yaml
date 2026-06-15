@@ -42,9 +42,14 @@ jobs:
                   echo "CONTAINER_REGISTRY_NAME=$(jq -r '.CONTAINER_REGISTRY_NAME.value' outputs.json)" >> $GITHUB_OUTPUT
                   echo "MCP_SERVER_NAME=$(jq -r '.MCP_SERVER_NAME.value' outputs.json)" >> $GITHUB_OUTPUT
 
-            - name: Set secrets using gh CLI
-              env:
-                  GH_TOKEN: ${{ secrets.PA_TOKEN }}
+            - name: show
+              id: show
               run: |
-                  gh secret set CONTAINER_REGISTRY_NAME --body "${{ steps.createResources.outputs.CONTAINER_REGISTRY_NAME }}"
-                  gh secret set MCP_SERVER_NAME --body "${{ steps.createResources.outputs.MCP_SERVER_NAME }}"
+                  echo ${{ steps.createResources.outputs.CONTAINER_REGISTRY_NAME }}
+                  echo ${{ steps.createResources.outputs.MCP_SERVER_NAME }}
+            # - name: Set secrets using gh CLI
+            #   env:
+            #       GH_TOKEN: ${{ secrets.PA_TOKEN }}
+            #   run: |
+            #       gh secret set CONTAINER_REGISTRY_NAME --body "${{ steps.createResources.outputs.CONTAINER_REGISTRY_NAME }}"
+            #       gh secret set MCP_SERVER_NAME --body "${{ steps.createResources.outputs.MCP_SERVER_NAME }}"
