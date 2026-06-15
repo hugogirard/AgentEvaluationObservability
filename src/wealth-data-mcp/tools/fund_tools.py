@@ -5,7 +5,7 @@ from dependencies import get_fund_repository
 from repository import FundRepository
 from models import Fund
 
-tools = FastMCP(
+func_mcp = FastMCP(
     "Fund Tools",
     instructions="""Tools for querying the wealth-advisory fund catalog.
 Use these tools to look up fund details, browse funds by category or risk level,
@@ -13,7 +13,7 @@ and retrieve NAV, MER, YTD returns, and minimum investment requirements. All mon
 )
 
 
-@tools.tool()
+@func_mcp.tool()
 async def get_fund_by_code(
     fund_code: str,
     repository: FundRepository = Depends(get_fund_repository),
@@ -28,7 +28,7 @@ async def get_fund_by_code(
     return repository.get_by_code(fund_code)
 
 
-@tools.tool()
+@func_mcp.tool()
 async def get_all_funds(
     repository: FundRepository = Depends(get_fund_repository),
 ) -> list[Fund]:
@@ -39,7 +39,7 @@ async def get_all_funds(
     return repository.get_all()
 
 
-@tools.tool()
+@func_mcp.tool()
 async def get_funds_by_category(
     category: str,
     repository: FundRepository = Depends(get_fund_repository),
@@ -54,7 +54,7 @@ async def get_funds_by_category(
     return repository.get_by_category(category)
 
 
-@tools.tool()
+@func_mcp.tool()
 async def get_funds_by_risk_level(
     risk_level: str,
     repository: FundRepository = Depends(get_fund_repository),

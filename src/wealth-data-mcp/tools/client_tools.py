@@ -7,7 +7,7 @@ from dependencies import get_client_repository
 from repository import ClientRepository
 from models import Client, Holding
 
-tools = FastMCP(
+client_mcp = FastMCP(
     "Client Tools",
     instructions="""Tools for managing wealth-advisory client portfolios.
 Use these tools to look up client information, query clients by advisor or risk profile,
@@ -15,7 +15,7 @@ and manage portfolio holdings (add, remove, update). All monetary values are in 
 )
 
 
-@tools.tool()
+@client_mcp.tool()
 async def get_client_by_id(
     client_id: str,
     repository: ClientRepository = Depends(get_client_repository),
@@ -30,7 +30,7 @@ async def get_client_by_id(
     return repository.get_by_id(client_id)
 
 
-@tools.tool()
+@client_mcp.tool()
 async def get_all_clients(
     repository: ClientRepository = Depends(get_client_repository),
 ) -> list[Client]:
@@ -41,7 +41,7 @@ async def get_all_clients(
     return repository.get_all()
 
 
-@tools.tool()
+@client_mcp.tool()
 async def get_clients_by_advisor(
     advisor_id: str,
     repository: ClientRepository = Depends(get_client_repository),
@@ -56,7 +56,7 @@ async def get_clients_by_advisor(
     return repository.get_by_advisor(advisor_id)
 
 
-@tools.tool()
+@client_mcp.tool()
 async def get_clients_by_risk_profile(
     risk_profile: str,
     repository: ClientRepository = Depends(get_client_repository),
@@ -71,7 +71,7 @@ async def get_clients_by_risk_profile(
     return repository.get_by_risk_profile(risk_profile)
 
 
-@tools.tool()
+@client_mcp.tool()
 async def add_client_holding(
     client_id: str,
     fund_code: str,
@@ -103,7 +103,7 @@ async def add_client_holding(
     return repository.add_holding(client_id, holding)
 
 
-@tools.tool()
+@client_mcp.tool()
 async def remove_client_holding(
     client_id: str,
     fund_code: str,
@@ -119,7 +119,7 @@ async def remove_client_holding(
     return repository.remove_holding(client_id, fund_code)
 
 
-@tools.tool()
+@client_mcp.tool()
 async def update_client_holding(
     client_id: str,
     fund_code: str,
