@@ -2,7 +2,6 @@ from pydantic import BaseModel, Field, model_validator
 from typing import Optional
 
 from models.holding import Holding
-from models.asset_allocation import AssetAllocation
 
 
 class Client(BaseModel):
@@ -17,9 +16,6 @@ class Client(BaseModel):
     last_review_date: str = Field(alias="lastReviewDate")
     total_balance: float = Field(alias="totalBalance")
     holdings: list[Holding]
-    asset_allocation: AssetAllocation = Field(alias="assetAllocation")
-    total_equity_percent: float = Field(alias="totalEquityPercent")
-    total_fixed_income_percent: float = Field(alias="totalFixedIncomePercent")
     notes: Optional[str] = None
 
     @model_validator(mode="before")
