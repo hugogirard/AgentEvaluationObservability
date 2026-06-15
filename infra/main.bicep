@@ -47,6 +47,8 @@ var abbrs = loadJsonContent('./abbreviations.json')
 
 var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
 
+var registryName = '${abbrs.containerRegistryRegistries}${resourceToken}'
+
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: resourceGroupName
   location: location
@@ -112,7 +114,7 @@ module registry 'core/container/registry.bicep' = {
   params: {
     location: location
     tags: tags
-    resourceName: '${abbrs.containerRegistryRegistries}${resourceToken}'
+    resourceName: registryName
   }
 }
 
@@ -142,4 +144,4 @@ module rbac 'core/RBAC/acr.bicep' = {
 }
 
 output CONTAINER_REGISTRY_NAME string = registry.outputs.resourceName
-output MCP_SERVER_NAME string = mcpServer.outputs.resourceName
+output MCP_SERVER_NAME string = registryName
