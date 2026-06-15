@@ -40,6 +40,7 @@ jobs:
                     --output json > outputs.json
 
                   echo "CONTAINER_REGISTRY_NAME=$(jq -r '.CONTAINER_REGISTRY_NAME.value' outputs.json)" >> $GITHUB_OUTPUT
+                  echo "MCP_SERVER_NAME=$(jq -r '.MCP_SERVER_NAME.value' outputs.json)" >> $GITHUB_OUTPUT
 
             - name: Set secrets using gh CLI
               env:
