@@ -143,5 +143,5 @@ module rbac 'core/RBAC/acr.bicep' = {
   }
 }
 
-output CONTAINER_REGISTRY_NAME string = registryName
-output MCP_SERVER_NAME string = mcpServer.outputs.resourceName
+output container_registry_name string = registryName
+output mcp_server_name string = mcpServer.outputs.resourceName
