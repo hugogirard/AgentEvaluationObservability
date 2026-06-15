@@ -1,0 +1,122 @@
+[
+    {
+        "fundCode": "GEG-7200",
+        "fundName": "Global Equity Growth Fund",
+        "category": "Global Equity",
+        "riskLevel": "High",
+        "mer": 1.45,
+        "navPerUnit": 83.00,
+        "currency": "CAD",
+        "minInvestment": 500.00,
+        "ytdReturn": 8.2,
+        "description": "Diversified global equity fund investing in large-cap companies across North America, Europe, and Asia-Pacific."
+    },
+    {
+        "fundCode": "CDIV",
+        "fundName": "Canadian Dividend ETF",
+        "category": "Canadian Equity",
+        "riskLevel": "Medium",
+        "mer": 0.22,
+        "navPerUnit": 32.50,
+        "currency": "CAD",
+        "minInvestment": 0.00,
+        "ytdReturn": 5.1,
+        "description": "Tracks an index of high-dividend-yielding Canadian equities across financials, energy, and utilities."
+    },
+    {
+        "fundCode": "STB-3300",
+        "fundName": "Short-Term Bond Fund",
+        "category": "Fixed Income",
+        "riskLevel": "Low",
+        "mer": 0.65,
+        "navPerUnit": 15.15,
+        "currency": "CAD",
+        "minInvestment": 500.00,
+        "ytdReturn": 3.1,
+        "description": "Invests in Canadian government and investment-grade corporate bonds with maturities under 5 years."
+    },
+    {
+        "fundCode": "GIC-1800",
+        "fundName": "Premium GIC 18-Month",
+        "category": "Cash Equivalent",
+        "riskLevel": "Very Low",
+        "mer": 0.00,
+        "navPerUnit": null,
+        "currency": "CAD",
+        "minInvestment": 1000.00,
+        "ytdReturn": 4.05,
+        "description": "Non-redeemable 18-month GIC with guaranteed principal and fixed interest rate."
+    },
+    {
+        "fundCode": "BGF-4501",
+        "fundName": "Balanced Growth Fund",
+        "category": "Balanced",
+        "riskLevel": "Medium",
+        "mer": 1.15,
+        "navPerUnit": 25.42,
+        "currency": "CAD",
+        "minInvestment": 500.00,
+        "ytdReturn": 6.0,
+        "description": "Balanced fund targeting 60% equities and 40% fixed income with quarterly rebalancing."
+    },
+    {
+        "fundCode": "USIDX-500",
+        "fundName": "U.S. Index Fund",
+        "category": "U.S. Equity",
+        "riskLevel": "High",
+        "mer": 0.10,
+        "navPerUnit": 72.30,
+        "currency": "CAD",
+        "minInvestment": 0.00,
+        "ytdReturn": 7.2,
+        "description": "Low-cost index fund tracking the S&P 500 in Canadian dollars."
+    },
+    {
+        "fundCode": "EMK-6100",
+        "fundName": "Emerging Markets Equity Fund",
+        "category": "International Equity",
+        "riskLevel": "Very High",
+        "mer": 1.75,
+        "navPerUnit": 18.90,
+        "currency": "CAD",
+        "minInvestment": 1000.00,
+        "ytdReturn": 3.8,
+        "description": "Invests in equities across emerging markets including China, India, Brazil, and Southeast Asia."
+    },
+    {
+        "fundCode": "CORP-2200",
+        "fundName": "Corporate Bond Fund",
+        "category": "Fixed Income",
+        "riskLevel": "Low-Medium",
+        "mer": 0.80,
+        "navPerUnit": 10.55,
+        "currency": "CAD",
+        "minInvestment": 500.00,
+        "ytdReturn": 3.8,
+        "description": "Investment-grade Canadian corporate bonds with medium duration targeting income and stability."
+    },
+    {
+        "fundCode": "REIT-900",
+        "fundName": "Canadian Real Estate Fund",
+        "category": "Real Estate",
+        "riskLevel": "Medium-High",
+        "mer": 1.30,
+        "navPerUnit": 22.10,
+        "currency": "CAD",
+        "minInvestment": 500.00,
+        "ytdReturn": 2.9,
+        "description": "Invests in Canadian REITs across commercial, residential, and industrial properties."
+    },
+    {
+        "fundCode": "HISA-100",
+        "fundName": "High-Interest Savings Fund",
+        "category": "Cash Equivalent",
+        "riskLevel": "Very Low",
+        "mer": 0.15,
+        "navPerUnit": 10.00,
+        "currency": "CAD",
+        "minInvestment": 0.00,
+        "ytdReturn": 3.90,
+        "description": "Daily accrual savings vehicle offering deposit-like safety with no lock-in period."
+    }
+]

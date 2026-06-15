@@ -1,0 +1,506 @@
+[
+    {
+        "id": "client-1042",
+        "clientId": "1042",
+        "name": "Margaret Chen",
+        "riskProfile": "Moderate",
+        "accountType": "RRSP",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-01-15",
+        "totalBalance": 342500.00,
+        "holdings": [
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 2150.00,
+                "marketValue": 178450.00,
+                "bookCost": 155000.00,
+                "weight": 52.1
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 2940,
+                "marketValue": 95550.00,
+                "bookCost": 82000.00,
+                "weight": 27.9
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 3200.00,
+                "marketValue": 48500.00,
+                "bookCost": 47000.00,
+                "weight": 14.2
+            },
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 20000.00,
+                "bookCost": 20000.00,
+                "weight": 5.8
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 27.9,
+            "usEquities": 23.4,
+            "internationalEquities": 28.7,
+            "canadianBonds": 5.8,
+            "corporateBonds": 8.4,
+            "cashEquivalents": 5.8
+        },
+        "totalEquityPercent": 80.0,
+        "totalFixedIncomePercent": 20.0
+    },
+    {
+        "id": "client-1105",
+        "clientId": "1105",
+        "name": "James Rivera",
+        "riskProfile": "Aggressive",
+        "accountType": "Non-Registered",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-03-22",
+        "totalBalance": 587200.00,
+        "holdings": [
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 3800.00,
+                "marketValue": 315400.00,
+                "bookCost": 270000.00,
+                "weight": 53.7
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 5600,
+                "marketValue": 182000.00,
+                "bookCost": 155000.00,
+                "weight": 31.0
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 2450.00,
+                "marketValue": 62300.00,
+                "bookCost": 55000.00,
+                "weight": 10.6
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 1800.00,
+                "marketValue": 27500.00,
+                "bookCost": 26000.00,
+                "weight": 4.7
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 37.2,
+            "usEquities": 27.5,
+            "internationalEquities": 20.0,
+            "canadianBonds": 2.8,
+            "corporateBonds": 1.9,
+            "cashEquivalents": 10.6
+        },
+        "totalEquityPercent": 84.7,
+        "totalFixedIncomePercent": 15.3
+    },
+    {
+        "id": "client-1203",
+        "clientId": "1203",
+        "name": "Sarah Thompson",
+        "riskProfile": "Conservative",
+        "accountType": "RRIF",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-04-10",
+        "totalBalance": 415000.00,
+        "holdings": [
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 150000.00,
+                "bookCost": 150000.00,
+                "weight": 36.1
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 10500.00,
+                "marketValue": 159075.00,
+                "bookCost": 152000.00,
+                "weight": 38.3
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 2100.00,
+                "marketValue": 53400.00,
+                "bookCost": 48000.00,
+                "weight": 12.9
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 1620,
+                "marketValue": 52525.00,
+                "bookCost": 45000.00,
+                "weight": 12.7
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 12.7,
+            "usEquities": 4.6,
+            "internationalEquities": 8.3,
+            "canadianBonds": 38.3,
+            "corporateBonds": 0.0,
+            "cashEquivalents": 36.1
+        },
+        "totalEquityPercent": 25.6,
+        "totalFixedIncomePercent": 74.4
+    },
+    {
+        "id": "client-1287",
+        "clientId": "1287",
+        "name": "David Okonkwo",
+        "riskProfile": "Moderate",
+        "accountType": "TFSA",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-05-02",
+        "totalBalance": 95200.00,
+        "holdings": [
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 1850.00,
+                "marketValue": 47030.00,
+                "bookCost": 42000.00,
+                "weight": 49.4
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 460,
+                "marketValue": 14950.00,
+                "bookCost": 13000.00,
+                "weight": 15.7
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 1550.00,
+                "marketValue": 23482.50,
+                "bookCost": 22500.00,
+                "weight": 24.7
+            },
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 9737.50,
+                "bookCost": 9737.50,
+                "weight": 10.2
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 25.0,
+            "usEquities": 12.0,
+            "internationalEquities": 8.1,
+            "canadianBonds": 24.7,
+            "corporateBonds": 20.0,
+            "cashEquivalents": 10.2
+        },
+        "totalEquityPercent": 45.1,
+        "totalFixedIncomePercent": 54.9
+    },
+    {
+        "id": "client-1340",
+        "clientId": "1340",
+        "name": "Lisa Patel",
+        "riskProfile": "Aggressive",
+        "accountType": "RRSP",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-02-28",
+        "totalBalance": 278900.00,
+        "holdings": [
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 7200,
+                "marketValue": 234000.00,
+                "bookCost": 195000.00,
+                "weight": 83.9
+            },
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 360.00,
+                "marketValue": 29880.00,
+                "bookCost": 25000.00,
+                "weight": 10.7
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 990.00,
+                "marketValue": 15020.00,
+                "bookCost": 14500.00,
+                "weight": 5.4
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 83.9,
+            "usEquities": 4.8,
+            "internationalEquities": 5.9,
+            "canadianBonds": 5.4,
+            "corporateBonds": 0.0,
+            "cashEquivalents": 0.0
+        },
+        "totalEquityPercent": 94.6,
+        "totalFixedIncomePercent": 5.4,
+        "_notes": "CONCENTRATION RISK: 83.9% in a single fund (CDIV). Exceeds 25% sector concentration limit per suitability guidelines."
+    },
+    {
+        "id": "client-1412",
+        "clientId": "1412",
+        "name": "Robert Kim",
+        "riskProfile": "Conservative",
+        "accountType": "RRSP",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-05-15",
+        "totalBalance": 192000.00,
+        "holdings": [
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 75000.00,
+                "bookCost": 75000.00,
+                "weight": 39.1
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 5800.00,
+                "marketValue": 87870.00,
+                "bookCost": 85000.00,
+                "weight": 45.8
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 1145.00,
+                "marketValue": 29130.00,
+                "bookCost": 27000.00,
+                "weight": 15.1
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 5.3,
+            "usEquities": 2.3,
+            "internationalEquities": 1.5,
+            "canadianBonds": 45.8,
+            "corporateBonds": 6.0,
+            "cashEquivalents": 39.1
+        },
+        "totalEquityPercent": 9.1,
+        "totalFixedIncomePercent": 90.9
+    },
+    {
+        "id": "client-1508",
+        "clientId": "1508",
+        "name": "Emma Dubois",
+        "riskProfile": "Moderate",
+        "accountType": "Non-Registered",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-01-30",
+        "totalBalance": 463800.00,
+        "holdings": [
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 4200.00,
+                "marketValue": 348600.00,
+                "bookCost": 300000.00,
+                "weight": 75.2
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 4100.00,
+                "marketValue": 62115.00,
+                "bookCost": 60000.00,
+                "weight": 13.4
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 2090.00,
+                "marketValue": 53085.00,
+                "bookCost": 48000.00,
+                "weight": 11.4
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 8.0,
+            "usEquities": 33.8,
+            "internationalEquities": 40.3,
+            "canadianBonds": 13.4,
+            "corporateBonds": 4.5,
+            "cashEquivalents": 0.0
+        },
+        "totalEquityPercent": 82.1,
+        "totalFixedIncomePercent": 17.9,
+        "_notes": "DRIFT: 82.1% equities vs. Moderate target of ~50%. Heavy international tilt (40.3%) via GEG-7200. Needs rebalancing."
+    },
+    {
+        "id": "client-1623",
+        "clientId": "1623",
+        "name": "Michael Santos",
+        "riskProfile": "Aggressive",
+        "accountType": "TFSA",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-04-18",
+        "totalBalance": 156700.00,
+        "holdings": [
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 960.00,
+                "marketValue": 79680.00,
+                "bookCost": 68000.00,
+                "weight": 50.8
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 1380,
+                "marketValue": 44850.00,
+                "bookCost": 38000.00,
+                "weight": 28.6
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 580.00,
+                "marketValue": 14750.00,
+                "bookCost": 13000.00,
+                "weight": 9.4
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 1140.00,
+                "marketValue": 17270.00,
+                "bookCost": 16500.00,
+                "weight": 11.0
+            },
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 150.00,
+                "bookCost": 150.00,
+                "weight": 0.2
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 34.3,
+            "usEquities": 25.4,
+            "internationalEquities": 25.3,
+            "canadianBonds": 11.0,
+            "corporateBonds": 3.8,
+            "cashEquivalents": 0.2
+        },
+        "totalEquityPercent": 85.0,
+        "totalFixedIncomePercent": 15.0
+    },
+    {
+        "id": "client-1701",
+        "clientId": "1701",
+        "name": "Anne Bergström",
+        "riskProfile": "Conservative",
+        "accountType": "RRIF",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-03-01",
+        "totalBalance": 310000.00,
+        "holdings": [
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 310000.00,
+                "bookCost": 310000.00,
+                "weight": 100.0
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 0.0,
+            "usEquities": 0.0,
+            "internationalEquities": 0.0,
+            "canadianBonds": 0.0,
+            "corporateBonds": 0.0,
+            "cashEquivalents": 100.0
+        },
+        "totalEquityPercent": 0.0,
+        "totalFixedIncomePercent": 100.0,
+        "_notes": "GIC maturing soon. 100% concentration in a single GIC — needs reinvestment/diversification discussion."
+    },
+    {
+        "id": "client-1845",
+        "clientId": "1845",
+        "name": "Raj Kapoor",
+        "riskProfile": "Moderate",
+        "accountType": "RRSP",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-04-05",
+        "totalBalance": 225000.00,
+        "holdings": [
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 80000.00,
+                "bookCost": 80000.00,
+                "weight": 35.6
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 4600.00,
+                "marketValue": 69690.00,
+                "bookCost": 67000.00,
+                "weight": 31.0
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 2200.00,
+                "marketValue": 55930.00,
+                "bookCost": 50000.00,
+                "weight": 24.9
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 595,
+                "marketValue": 19337.50,
+                "bookCost": 17000.00,
+                "weight": 8.5
+            }
+        ],
+        "assetAllocation": {
+            "canadianEquities": 17.2,
+            "usEquities": 7.5,
+            "internationalEquities": 2.5,
+            "canadianBonds": 31.0,
+            "corporateBonds": 6.2,
+            "cashEquivalents": 35.6
+        },
+        "totalEquityPercent": 27.2,
+        "totalFixedIncomePercent": 72.8,
+        "_notes": "UNDERINVESTED: 72.8% fixed income vs. Moderate target of ~50%. Cash-heavy — redeployment opportunity into equities."
+    }
+]
