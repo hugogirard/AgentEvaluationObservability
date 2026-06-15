@@ -116,4 +116,29 @@ module registry 'core/container/registry.bicep' = {
   }
 }
 
+module webfarm 'core/web/webfarm.bicep' = {
+  scope: rg
+  params: {
+    location: location
+    resourceName: '${abbrs.webServerFarms}${resourceToken}'
+  }
+}
+
+module mcpServer 'core/web/web.bicep' = {
+  scope: rg
+  params: {
+    location: location
+    resourceName: '${abbrs.webSitesAppService}mcp-${resourceToken}'
+    serverFarmId: webfarm.outputs.resourceId
+  }
+}
+
+module rbac 'core/RBAC/acr.bicep' = {
+  scope: rg
+  params: {
+    acrResourceId: registry.outputs.resourceId
+    principalId: mcpServer.outputs.principalId
+  }
+}
+
 output CONTAINER_REGISTRY_NAME string = registry.outputs.resourceName
