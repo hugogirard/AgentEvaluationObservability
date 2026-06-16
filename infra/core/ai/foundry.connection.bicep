@@ -37,7 +37,7 @@ resource connectionAppInsight 'Microsoft.CognitiveServices/accounts/projects/con
 }
 
 resource connectionMCPServer 'Microsoft.CognitiveServices/accounts/projects/connections@2026-03-01' = {
-  name: 'WEALTH-MCP-SERVER-TEST'
+  name: 'WEALTH-MCP-SERVER'
   parent: project
   properties: {
     authType: 'CustomKeys'
