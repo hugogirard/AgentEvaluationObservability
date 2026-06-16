@@ -180,3 +180,5 @@ module rbac 'core/RBAC/acr.bicep' = {
 
 output container_registry_name string = registryName
 output mcp_server_name string = mcpServer.outputs.resourceName
+output project_endpoint string = foundry.outputs.projectEndpoint
+output chat_completion_model string = chatCompleteionDeploymentName
