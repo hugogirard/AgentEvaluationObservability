@@ -4,6 +4,8 @@ param environmentName = 'contoso-bank'
 
 param location = 'canadaeast'
 
+param cosmosDbLocation = 'canadacentral'
+
 param resourceGroupName = 'rg-fsi-demo-eval'
 
 param chatCompleteionDeploymentName = 'gpt-5-mini'

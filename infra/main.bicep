@@ -9,6 +9,9 @@ param environmentName string
 @description('Primary location for all resources')
 param location string
 
+@description('Location of cosmosdb if different from the main location')
+param cosmosDbLocation string
+
 @description('The name of the resource group')
 param resourceGroupName string
 
@@ -53,6 +56,16 @@ resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: resourceGroupName
   location: location
   tags: tags
+}
+
+module monitoring 'core/monitoring/monitor.bicep' = {
+  scope: rg
+  params: {
+    location: location
+    tags: tags
+    appInsightResourceName: '${abbrs.insightsComponents}${resourceToken}'
+    logAnalyticResourceName: '${abbrs.operationalInsightsWorkspaces}${resourceToken}'
+  }
 }
 
 module aisearch 'core/ai/search.bicep' = {
@@ -115,6 +128,15 @@ module registry 'core/container/registry.bicep' = {
     location: location
     tags: tags
     resourceName: registryName
+  }
+}
+
+module cosmos 'core/data/cosmos.bicep' = {
+  scope: rg
+  params: {
+    location: cosmosDbLocation
+    tags: tags
+    resourceName: '${abbrs.documentDBDatabaseAccounts}${resourceToken}'
   }
 }
 
