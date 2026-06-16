@@ -1,6 +1,12 @@
 param resourceName string
 param serverFarmId string
 param location string
+param cosmosDbResourceName string
+param subscriptioKey string = newGuid()
+
+resource cosmos 'Microsoft.DocumentDB/databaseAccounts@2025-11-01-preview' existing = {
+  name: cosmosDbResourceName
+}
 
 resource web 'Microsoft.Web/sites@2024-11-01' = {
   name: resourceName
@@ -11,7 +17,16 @@ resource web 'Microsoft.Web/sites@2024-11-01' = {
   }
   properties: {
     siteConfig: {
-      appSettings: []
+      appSettings: [
+        {
+          name: 'COSMOS_DB_CONNECTION_STRING'
+          value: cosmos.listConnectionStrings().connectionStrings[0].connectionString
+        }
+        {
+          name: 'MCP_SERVER_KEY'
+          value: subscriptioKey
+        }
+      ]
       linuxFxVersion: 'sitecontainers'
       acrUseManagedIdentityCreds: true
       alwaysOn: true

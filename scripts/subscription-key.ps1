@@ -10,22 +10,18 @@ if (-not $appName) {
 
 Write-Host "Found App Service: $appName" -ForegroundColor Cyan
 
-# Generate a new GUID as the subscription key
-$subscriptionKey = [guid]::NewGuid().ToString()
-
-# Set the MCP_SERVER_KEY app setting on the app service
-az webapp config appsettings set `
+# Retrieve the MCP_SERVER_KEY app setting
+$subscriptionKey = az webapp config appsettings list `
     --name $appName `
     --resource-group $resourceGroup `
-    --settings MCP_SERVER_KEY=$subscriptionKey `
-    --output none
+    --query "[?name=='MCP_SERVER_KEY'].value" -o tsv
 
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "Failed to set app setting on '$appName'"
+if (-not $subscriptionKey) {
+    Write-Error "MCP_SERVER_KEY not found on '$appName'"
     exit 1
 }
 
 Write-Host ""
-Write-Host "MCP_SERVER_KEY has been set on '$appName'" -ForegroundColor Green
+Write-Host "MCP_SERVER_KEY retrieved from '$appName'" -ForegroundColor Green
 Write-Host ""
 Write-Host "x-mcp-server-key: $subscriptionKey" -ForegroundColor Yellow

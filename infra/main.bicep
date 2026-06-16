@@ -154,6 +154,7 @@ module mcpServer 'core/web/web.bicep' = {
     location: location
     resourceName: '${abbrs.webSitesAppService}mcp-${resourceToken}'
     serverFarmId: webfarm.outputs.resourceId
+    cosmosDbResourceName: cosmos.outputs.resourceName
   }
 }
 
