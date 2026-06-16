@@ -6,6 +6,8 @@ on:
 jobs:
     configure-foundry-agents:
         runs-on: ubuntu-latest
+        outputs:
+            agent-versions: ${{ steps.create-agent.outputs.AGENT_VERSIONS }}
 
         steps:
             - name: Checkout code
@@ -54,5 +56,5 @@ jobs:
               with:
                   azure-ai-project-endpoint: ${{secrets.PROJECT_ENDPOINT}}
                   deployment-name: ${{secrets.CHAT_COMPLETION_MODEL}}
-                  agent-ids: ${{secrets.AGENT_VERSIONS}}
+                  agent-ids: ${{ needs.configure-foundry-agents.outputs.agent-versions }}
                   data-path: ${{ github.workspace }}/evaluation//dataset//cicd.json
