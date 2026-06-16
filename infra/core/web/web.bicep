@@ -40,3 +40,5 @@ resource web 'Microsoft.Web/sites@2024-11-01' = {
 
 output resourceName string = web.name
 output principalId string = web.identity.principalId
+output mcpServerEndpoint string = web.properties.defaultHostName
+output mcpSubscriptionKey string = subscriptioKey

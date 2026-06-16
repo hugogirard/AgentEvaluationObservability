@@ -1,0 +1,166 @@
+[
+    {
+        "query": "Who is client 1042?",
+        "response": "Client 1042 is Margaret Chen. She has a Moderate risk profile with an RRSP account managed by advisor ADV-301. Her total portfolio balance is 342,500.00 CAD. Her last review was on 2026-01-15. She holds 4 positions: Global Equity Growth Fund (52.1%), Canadian Dividend ETF (27.9%), Short-Term Bond Fund (14.2%), and Premium GIC 18-Month (5.8%)."
+    },
+    {
+        "query": "Can you pull up James Rivera's portfolio?",
+        "response": "James Rivera (client 1105) has an Aggressive risk profile with a Non-Registered account managed by advisor ADV-205. His total balance is 587,200.00 CAD, last reviewed on 2026-03-22. Holdings: Global Equity Growth Fund (53.7%, 315,400.00 CAD), Canadian Dividend ETF (31.0%, 182,000.00 CAD), Balanced Growth Fund (10.6%, 62,300.00 CAD), and Short-Term Bond Fund (4.7%, 27,500.00 CAD)."
+    },
+    {
+        "query": "Show me the details for client 1203.",
+        "response": "Client 1203 is Sarah Thompson. She has a Conservative risk profile with a RRIF account under advisor ADV-301. Her total balance is 415,000.00 CAD, last reviewed 2026-04-10. Holdings: Short-Term Bond Fund (38.3%, 159,075.00 CAD), Premium GIC 18-Month (36.1%, 150,000.00 CAD), Balanced Growth Fund (12.9%, 53,400.00 CAD), and Canadian Dividend ETF (12.7%, 52,525.00 CAD)."
+    },
+    {
+        "query": "What is David Okonkwo's account type and balance?",
+        "response": "David Okonkwo (client 1287) has a TFSA account with a total balance of 95,200.00 CAD. He has a Moderate risk profile and is managed by advisor ADV-118."
+    },
+    {
+        "query": "Look up client 1340 for me.",
+        "response": "Client 1340 is Lisa Patel. She has an Aggressive risk profile with an RRSP account managed by advisor ADV-205. Her total balance is 278,900.00 CAD, last reviewed 2026-02-28. Holdings: Canadian Dividend ETF (83.9%, 234,000.00 CAD), Global Equity Growth Fund (10.7%, 29,880.00 CAD), and Short-Term Bond Fund (5.4%, 15,020.00 CAD). Note: There is a concentration risk — 83.9% is in a single fund (CDIV), which exceeds the 25% sector concentration limit per suitability guidelines."
+    },
+    {
+        "query": "Tell me about Robert Kim's portfolio.",
+        "response": "Robert Kim (client 1412) has a Conservative risk profile with an RRSP account managed by advisor ADV-118. His total balance is 192,000.00 CAD, last reviewed 2026-05-15. Holdings: Short-Term Bond Fund (45.8%, 87,870.00 CAD), Premium GIC 18-Month (39.1%, 75,000.00 CAD), and Balanced Growth Fund (15.1%, 29,130.00 CAD)."
+    },
+    {
+        "query": "What's the portfolio for client 1508?",
+        "response": "Client 1508 is Emma Dubois. She has a Moderate risk profile with a Non-Registered account managed by advisor ADV-301. Her total balance is 463,800.00 CAD, last reviewed 2026-01-30. Holdings: Global Equity Growth Fund (75.2%, 348,600.00 CAD), Short-Term Bond Fund (13.4%, 62,115.00 CAD), and Balanced Growth Fund (11.4%, 53,085.00 CAD). Note: Her portfolio has drifted significantly — 82.1% equities vs. Moderate target of ~50%, with heavy international tilt (40.3%) via GEG-7200. She needs rebalancing."
+    },
+    {
+        "query": "Who is Anne Bergström and what does she hold?",
+        "response": "Anne Bergström (client 1701) has a Conservative risk profile with a RRIF account managed by advisor ADV-118. Her total balance is 310,000.00 CAD, last reviewed 2026-03-01. She holds a single position: Premium GIC 18-Month at 100% weight (310,000.00 CAD). Note: This GIC is maturing soon and she has 100% concentration in a single instrument — a reinvestment and diversification discussion is needed."
+    },
+    {
+        "query": "Which clients does advisor ADV-301 manage?",
+        "response": "Advisor ADV-301 manages 4 clients:\n1. Margaret Chen (client 1042) — Moderate, RRSP, 342,500.00 CAD\n2. Sarah Thompson (client 1203) — Conservative, RRIF, 415,000.00 CAD\n3. Emma Dubois (client 1508) — Moderate, Non-Registered, 463,800.00 CAD\n4. Raj Kapoor (client 1845) — Moderate, RRSP, 225,000.00 CAD\n\nTotal book: 1,446,300.00 CAD across 4 clients."
+    },
+    {
+        "query": "Show me all clients under ADV-205.",
+        "response": "Advisor ADV-205 manages 3 clients:\n1. James Rivera (client 1105) — Aggressive, Non-Registered, 587,200.00 CAD\n2. Lisa Patel (client 1340) — Aggressive, RRSP, 278,900.00 CAD\n3. Michael Santos (client 1623) — Aggressive, TFSA, 156,700.00 CAD\n\nTotal book: 1,022,800.00 CAD across 3 clients."
+    },
+    {
+        "query": "What clients are assigned to advisor ADV-118?",
+        "response": "Advisor ADV-118 manages 3 clients:\n1. David Okonkwo (client 1287) — Moderate, TFSA, 95,200.00 CAD\n2. Robert Kim (client 1412) — Conservative, RRSP, 192,000.00 CAD\n3. Anne Bergström (client 1701) — Conservative, RRIF, 310,000.00 CAD\n\nTotal book: 597,200.00 CAD across 3 clients."
+    },
+    {
+        "query": "How many clients does ADV-205 have?",
+        "response": "Advisor ADV-205 has 3 clients: James Rivera, Lisa Patel, and Michael Santos."
+    },
+    {
+        "query": "Which advisor manages the most assets?",
+        "response": "Let me look at each advisor's book:\n- ADV-301: 1,446,300.00 CAD (4 clients)\n- ADV-205: 1,022,800.00 CAD (3 clients)\n- ADV-118: 597,200.00 CAD (3 clients)\n\nAdvisor ADV-301 manages the most assets at 1,446,300.00 CAD across 4 clients."
+    },
+    {
+        "query": "List all the aggressive clients for me.",
+        "response": "There are 3 clients with an Aggressive risk profile:\n1. James Rivera (client 1105) — Non-Registered, 587,200.00 CAD, advisor ADV-205\n2. Lisa Patel (client 1340) — RRSP, 278,900.00 CAD, advisor ADV-205\n3. Michael Santos (client 1623) — TFSA, 156,700.00 CAD, advisor ADV-205\n\nAll three are managed by advisor ADV-205."
+    },
+    {
+        "query": "Who are the conservative clients?",
+        "response": "There are 3 clients with a Conservative risk profile:\n1. Sarah Thompson (client 1203) — RRIF, 415,000.00 CAD, advisor ADV-301\n2. Robert Kim (client 1412) — RRSP, 192,000.00 CAD, advisor ADV-118\n3. Anne Bergström (client 1701) — RRIF, 310,000.00 CAD, advisor ADV-118"
+    },
+    {
+        "query": "Show me all moderate risk profile clients.",
+        "response": "There are 4 clients with a Moderate risk profile:\n1. Margaret Chen (client 1042) — RRSP, 342,500.00 CAD, advisor ADV-301\n2. David Okonkwo (client 1287) — TFSA, 95,200.00 CAD, advisor ADV-118\n3. Emma Dubois (client 1508) — Non-Registered, 463,800.00 CAD, advisor ADV-301\n4. Raj Kapoor (client 1845) — RRSP, 225,000.00 CAD, advisor ADV-301"
+    },
+    {
+        "query": "Which moderate clients have the highest balance?",
+        "response": "Among Moderate risk profile clients, ranked by balance:\n1. Emma Dubois (client 1508) — 463,800.00 CAD\n2. Margaret Chen (client 1042) — 342,500.00 CAD\n3. Raj Kapoor (client 1845) — 225,000.00 CAD\n4. David Okonkwo (client 1287) — 95,200.00 CAD\n\nEmma Dubois has the highest balance at 463,800.00 CAD."
+    },
+    {
+        "query": "Are there any conservative clients with a RRIF?",
+        "response": "Yes, there are 2 conservative clients with RRIF accounts:\n1. Sarah Thompson (client 1203) — 415,000.00 CAD, advisor ADV-301\n2. Anne Bergström (client 1701) — 310,000.00 CAD, advisor ADV-118"
+    },
+    {
+        "query": "What is the total value of all client portfolios?",
+        "response": "The total value across all 10 client portfolios is 3,066,300.00 CAD:\n- Margaret Chen: 342,500.00 CAD\n- James Rivera: 587,200.00 CAD\n- Sarah Thompson: 415,000.00 CAD\n- David Okonkwo: 95,200.00 CAD\n- Lisa Patel: 278,900.00 CAD\n- Robert Kim: 192,000.00 CAD\n- Emma Dubois: 463,800.00 CAD\n- Michael Santos: 156,700.00 CAD\n- Anne Bergström: 310,000.00 CAD\n- Raj Kapoor: 225,000.00 CAD"
+    },
+    {
+        "query": "Which clients hold the Global Equity Growth Fund?",
+        "response": "The following clients hold the Global Equity Growth Fund (GEG-7200):\n1. Margaret Chen (client 1042) — 2,150 units, 178,450.00 CAD (52.1% weight)\n2. James Rivera (client 1105) — 3,800 units, 315,400.00 CAD (53.7% weight)\n3. Lisa Patel (client 1340) — 360 units, 29,880.00 CAD (10.7% weight)\n4. Emma Dubois (client 1508) — 4,200 units, 348,600.00 CAD (75.2% weight)\n5. Michael Santos (client 1623) — 960 units, 79,680.00 CAD (50.8% weight)"
+    },
+    {
+        "query": "Who has the Canadian Dividend ETF in their portfolio?",
+        "response": "The following clients hold the Canadian Dividend ETF (CDIV):\n1. Margaret Chen (client 1042) — 2,940 units, 95,550.00 CAD (27.9%)\n2. James Rivera (client 1105) — 5,600 units, 182,000.00 CAD (31.0%)\n3. Sarah Thompson (client 1203) — 1,620 units, 52,525.00 CAD (12.7%)\n4. David Okonkwo (client 1287) — 460 units, 14,950.00 CAD (15.7%)\n5. Lisa Patel (client 1340) — 7,200 units, 234,000.00 CAD (83.9%)\n6. Michael Santos (client 1623) — 1,380 units, 44,850.00 CAD (28.6%)\n7. Raj Kapoor (client 1845) — 595 units, 19,337.50 CAD (8.5%)"
+    },
+    {
+        "query": "What percentage of Margaret Chen's portfolio is in equities?",
+        "response": "Margaret Chen's equity allocation is 80.0% of her portfolio:\n- Global Equity Growth Fund (GEG-7200): 52.1%\n- Canadian Dividend ETF (CDIV): 27.9%\n\nHer remaining 20.0% is in fixed income and cash equivalents:\n- Short-Term Bond Fund: 14.2%\n- Premium GIC 18-Month: 5.8%"
+    },
+    {
+        "query": "Does Lisa Patel have any concentration risk?",
+        "response": "Yes, Lisa Patel (client 1340) has significant concentration risk. Her Canadian Dividend ETF (CDIV) position represents 83.9% of her portfolio at 234,000.00 CAD. This exceeds the 25% sector concentration limit per suitability guidelines. Given her Aggressive risk profile, some concentration in equities is expected, but a single-fund allocation of 83.9% warrants a rebalancing discussion."
+    },
+    {
+        "query": "What's the unrealized gain on James Rivera's portfolio?",
+        "response": "James Rivera's unrealized gains by holding:\n- Global Equity Growth Fund: 45,400.00 CAD (315,400.00 - 270,000.00)\n- Canadian Dividend ETF: 27,000.00 CAD (182,000.00 - 155,000.00)\n- Balanced Growth Fund: 7,300.00 CAD (62,300.00 - 55,000.00)\n- Short-Term Bond Fund: 1,500.00 CAD (27,500.00 - 26,000.00)\n\nTotal unrealized gain: 81,200.00 CAD (market value 587,200.00 CAD vs. book cost 506,000.00 CAD)."
+    },
+    {
+        "query": "Show me Raj Kapoor's holdings.",
+        "response": "Raj Kapoor (client 1845) has a Moderate risk profile with an RRSP account. Total balance: 225,000.00 CAD. Holdings:\n1. Premium GIC 18-Month (GIC-1800) — 80,000.00 CAD (35.6%)\n2. Short-Term Bond Fund (STB-3300) — 69,690.00 CAD (31.0%)\n3. Balanced Growth Fund (BGF-4501) — 55,930.00 CAD (24.9%)\n4. Canadian Dividend ETF (CDIV) — 19,337.50 CAD (8.5%)\n\nNote: His portfolio is underinvested in equities — 72.8% in fixed income vs. the Moderate target of ~50%. There's a redeployment opportunity into equities."
+    },
+    {
+        "query": "When was Michael Santos' last review?",
+        "response": "Michael Santos (client 1623) had his last portfolio review on 2026-04-18."
+    },
+    {
+        "query": "Which clients haven't been reviewed since January?",
+        "response": "The following clients have not been reviewed since January 2026:\n1. Margaret Chen (client 1042) — last reviewed 2026-01-15\n2. Emma Dubois (client 1508) — last reviewed 2026-01-30\n\nBoth are managed by advisor ADV-301. Given it's now June 2026, these portfolios are overdue for a review."
+    },
+    {
+        "query": "Can you find client 9999?",
+        "response": "I wasn't able to find a client with ID 9999 in the system. Could you verify the client ID? Alternatively, I can search by advisor (ADV-118, ADV-205, or ADV-301) or by risk profile (Aggressive, Conservative, or Moderate) to help you locate the right client."
+    },
+    {
+        "query": "Show me the portfolio for client ABC.",
+        "response": "I couldn't find a client with ID \"ABC\". Client IDs are numeric (e.g., 1042, 1105, 1203). Would you like me to search by advisor or risk profile instead, or can you confirm the correct client ID?"
+    },
+    {
+        "query": "What clients does advisor ADV-999 have?",
+        "response": "There is no advisor with ID ADV-999 in the system. The available advisors are ADV-118, ADV-205, and ADV-301. Which advisor's book would you like to see?"
+    },
+    {
+        "query": "Do we have any clients with a high risk profile?",
+        "response": "There are no clients with a \"High\" risk profile. The system uses three risk profile categories: Aggressive, Conservative, and Moderate. Did you mean Aggressive? I can pull up those clients for you."
+    },
+    {
+        "query": "How many clients do we have in total?",
+        "response": "We have 10 clients in total across 3 advisors:\n- ADV-301: 4 clients (Margaret Chen, Sarah Thompson, Emma Dubois, Raj Kapoor)\n- ADV-205: 3 clients (James Rivera, Lisa Patel, Michael Santos)\n- ADV-118: 3 clients (David Okonkwo, Robert Kim, Anne Bergström)"
+    },
+    {
+        "query": "Give me a summary of all client accounts.",
+        "response": "Here's a summary of all 10 client accounts:\n\n| Client | Risk Profile | Account | Balance (CAD) | Advisor |\n|--------|-------------|---------|---------------|----------|\n| Margaret Chen (1042) | Moderate | RRSP | 342,500.00 | ADV-301 |\n| James Rivera (1105) | Aggressive | Non-Reg | 587,200.00 | ADV-205 |\n| Sarah Thompson (1203) | Conservative | RRIF | 415,000.00 | ADV-301 |\n| David Okonkwo (1287) | Moderate | TFSA | 95,200.00 | ADV-118 |\n| Lisa Patel (1340) | Aggressive | RRSP | 278,900.00 | ADV-205 |\n| Robert Kim (1412) | Conservative | RRSP | 192,000.00 | ADV-118 |\n| Emma Dubois (1508) | Moderate | Non-Reg | 463,800.00 | ADV-301 |\n| Michael Santos (1623) | Aggressive | TFSA | 156,700.00 | ADV-205 |\n| Anne Bergström (1701) | Conservative | RRIF | 310,000.00 | ADV-118 |\n| Raj Kapoor (1845) | Moderate | RRSP | 225,000.00 | ADV-301 |\n\nTotal AUM: 3,066,300.00 CAD"
+    },
+    {
+        "query": "What account types do our clients have?",
+        "response": "Our clients use 4 account types:\n- RRSP (4 clients): Margaret Chen, Lisa Patel, Robert Kim, Raj Kapoor\n- Non-Registered (2 clients): James Rivera, Emma Dubois\n- RRIF (2 clients): Sarah Thompson, Anne Bergström\n- TFSA (2 clients): David Okonkwo, Michael Santos"
+    },
+    {
+        "query": "Which client has the largest portfolio?",
+        "response": "James Rivera (client 1105) has the largest portfolio at 587,200.00 CAD. He has an Aggressive risk profile with a Non-Registered account managed by advisor ADV-205."
+    },
+    {
+        "query": "Which client has the smallest balance?",
+        "response": "David Okonkwo (client 1287) has the smallest portfolio at 95,200.00 CAD. He has a Moderate risk profile with a TFSA account managed by advisor ADV-118."
+    },
+    {
+        "query": "Are there any portfolios that are misaligned with their risk profile?",
+        "response": "Yes, I've identified 3 portfolios with potential misalignment:\n\n1. Emma Dubois (1508) — Moderate profile but 82.1% in equities (target ~50%). Heavy international tilt at 40.3% via GEG-7200. Needs rebalancing.\n\n2. Lisa Patel (1340) — Aggressive profile but 83.9% concentrated in a single fund (CDIV). Exceeds the 25% sector concentration limit per suitability guidelines.\n\n3. Raj Kapoor (1845) — Moderate profile but 72.8% in fixed income (target ~50%). Underinvested in equities — redeployment opportunity exists.\n\nI'd recommend prioritizing reviews for these clients."
+    },
+    {
+        "query": "Compare the portfolios of the two RRIF clients.",
+        "response": "Here's a comparison of the two RRIF clients:\n\nSarah Thompson (1203) — Conservative, ADV-301, 415,000.00 CAD\n- Short-Term Bond Fund: 38.3%\n- Premium GIC 18-Month: 36.1%\n- Balanced Growth Fund: 12.9%\n- Canadian Dividend ETF: 12.7%\n- Well-diversified across 4 holdings; conservative allocation appropriate.\n\nAnne Bergström (1701) — Conservative, ADV-118, 310,000.00 CAD\n- Premium GIC 18-Month: 100%\n- Single-instrument concentration; GIC maturing soon.\n\nKey difference: Sarah has a well-diversified conservative portfolio, while Anne's is 100% in one GIC that's maturing soon and needs reinvestment planning."
+    },
+    {
+        "query": "What is the total exposure to the Short-Term Bond Fund across all clients?",
+        "response": "Total exposure to the Short-Term Bond Fund (STB-3300) across all clients:\n\n1. Margaret Chen: 48,500.00 CAD (3,200 units)\n2. James Rivera: 27,500.00 CAD (1,800 units)\n3. Sarah Thompson: 159,075.00 CAD (10,500 units)\n4. David Okonkwo: 23,482.50 CAD (1,550 units)\n5. Lisa Patel: 15,020.00 CAD (990 units)\n6. Robert Kim: 87,870.00 CAD (5,800 units)\n7. Emma Dubois: 62,115.00 CAD (4,100 units)\n8. Michael Santos: 17,270.00 CAD (1,140 units)\n9. Raj Kapoor: 69,690.00 CAD (4,600 units)\n\nTotal: 510,522.50 CAD across 9 clients (33,680 units). Only Anne Bergström does not hold this fund."
+    },
+    {
+        "query": "How much unrealized gain does Margaret Chen have?",
+        "response": "Margaret Chen's unrealized gains by holding:\n- Global Equity Growth Fund: 23,450.00 CAD (178,450.00 - 155,000.00)\n- Canadian Dividend ETF: 13,550.00 CAD (95,550.00 - 82,000.00)\n- Short-Term Bond Fund: 1,500.00 CAD (48,500.00 - 47,000.00)\n- Premium GIC 18-Month: 0.00 CAD (20,000.00 - 20,000.00)\n\nTotal unrealized gain: 38,500.00 CAD (market value 342,500.00 CAD vs. book cost 304,000.00 CAD)."
+    },
+    {
+        "query": "Which clients have more than 50% of their portfolio in a single fund?",
+        "response": "The following clients have more than 50% in a single fund:\n\n1. Anne Bergström (1701) — 100% in Premium GIC 18-Month\n2. Lisa Patel (1340) — 83.9% in Canadian Dividend ETF (CDIV)\n3. Emma Dubois (1508) — 75.2% in Global Equity Growth Fund (GEG-7200)\n4. James Rivera (1105) — 53.7% in Global Equity Growth Fund (GEG-7200)\n5. Margaret Chen (1042) — 52.1% in Global Equity Growth Fund (GEG-7200)\n6. Michael Santos (1623) — 50.8% in Global Equity Growth Fund (GEG-7200)\n\n6 out of 10 clients have single-fund concentration above 50%. The most concerning are Anne (100%) and Lisa (83.9%)."
+    }
+]

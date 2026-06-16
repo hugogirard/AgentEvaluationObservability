@@ -1,0 +1,41 @@
+{"query": "Who is client 1042?"}
+{"query": "Can you pull up James Rivera's portfolio?"}
+{"query": "Show me the details for client 1203."}
+{"query": "What is David Okonkwo's account type and balance?"}
+{"query": "Look up client 1340 for me."}
+{"query": "Tell me about Robert Kim's portfolio."}
+{"query": "What's the portfolio for client 1508?"}
+{"query": "Who is Anne Bergström and what does she hold?"}
+{"query": "Which clients does advisor ADV-301 manage?"}
+{"query": "Show me all clients under ADV-205."}
+{"query": "What clients are assigned to advisor ADV-118?"}
+{"query": "How many clients does ADV-205 have?"}
+{"query": "Which advisor manages the most assets?"}
+{"query": "List all the aggressive clients for me."}
+{"query": "Who are the conservative clients?"}
+{"query": "Show me all moderate risk profile clients."}
+{"query": "Which moderate clients have the highest balance?"}
+{"query": "Are there any conservative clients with a RRIF?"}
+{"query": "What is the total value of all client portfolios?"}
+{"query": "Which clients hold the Global Equity Growth Fund?"}
+{"query": "Who has the Canadian Dividend ETF in their portfolio?"}
+{"query": "What percentage of Margaret Chen's portfolio is in equities?"}
+{"query": "Does Lisa Patel have any concentration risk?"}
+{"query": "What's the unrealized gain on James Rivera's portfolio?"}
+{"query": "Show me Raj Kapoor's holdings."}
+{"query": "When was Michael Santos' last review?"}
+{"query": "Which clients haven't been reviewed since January?"}
+{"query": "Can you find client 9999?"}
+{"query": "Show me the portfolio for client ABC."}
+{"query": "What clients does advisor ADV-999 have?"}
+{"query": "Do we have any clients with a high risk profile?"}
+{"query": "How many clients do we have in total?"}
+{"query": "Give me a summary of all client accounts."}
+{"query": "What account types do our clients have?"}
+{"query": "Which client has the largest portfolio?"}
+{"query": "Which client has the smallest balance?"}
+{"query": "Are there any portfolios that are misaligned with their risk profile?"}
+{"query": "Compare the portfolios of the two RRIF clients."}
+{"query": "What is the total exposure to the Short-Term Bond Fund across all clients?"}
+{"query": "How much unrealized gain does Margaret Chen have?"}
+{"query": "Which clients have more than 50% of their portfolio in a single fund?"}

@@ -86,6 +86,18 @@ module foundry 'core/ai/foundry.bicep' = {
   }
 }
 
+module foundryConnection 'core/ai/foundry.connection.bicep' = {
+  scope: rg
+  params: {
+    appInsightResourceName: monitoring.outputs.appInsightResourceName
+    foundryResourceName: foundry.outputs.resourceName
+    projectPrincipalId: foundry.outputs.projectPrincipalId
+    mcpServerEndpoint: mcpServer.outputs.mcpServerEndpoint
+    mcpServerSubscriptionKey: mcpServer.outputs.mcpSubscriptionKey
+    projectResourceName: foundry.outputs.projectResourceName
+  }
+}
+
 module chatCompletionModel 'core/ai/model.deployment.bicep' = {
   scope: rg
   params: {
