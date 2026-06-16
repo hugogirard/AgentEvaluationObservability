@@ -30,6 +30,7 @@ jobs:
                   creds: ${{ secrets.AZURE_CREDENTIALS }}
 
             - name: Run agents creation script
+              id: create-agent
               env:
                   # Add your environment variables here
                   PROJECT_ENDPOINT: ${{ secrets.PROJECT_ENDPOINT }}
@@ -37,3 +38,9 @@ jobs:
               run: |
                   uv run main.py
               working-directory: agents
+
+            - name: Save agent version as secret
+              env:
+                  GH_TOKEN: ${{ secrets.PA_TOKEN }}
+              run: |
+                  gh secret set AGENT_VERSION --body "${{ steps.create-agent.outputs.AGENT_VERSION }}"

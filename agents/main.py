@@ -35,6 +35,15 @@ def main():
         project_connection_id=mcp_connection.name
     )
 
+    try:
+        existing_versions = project.agents.list_versions(agent_name=AGENT_NAME,
+                                                        limit=2,
+                                                        order='desc')
+        previous_versions = [v.version for v in existing_versions]
+        previous_versions.reverse()
+    except Exception:
+        previous_versions = []
+
     with open('prompt.txt', 'r', encoding='utf-8') as file:
         prompt = file.read()
 
@@ -47,6 +56,15 @@ def main():
         ),
     )        
     print(f"Agent created (id: {agent.id}, name: {agent.name}, version: {agent.version})")
+
+    # Combine all versions: e.g. "1,2,3"
+    all_versions = previous_versions + [agent.version]
+
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output:
+        with open(github_output, "a") as f:
+            versions_str = ",".join(str(v) for v in all_versions)
+            f.write(f"AGENT_VERSIONS={versions_str}\n")
 
 
 if __name__ == "__main__":
