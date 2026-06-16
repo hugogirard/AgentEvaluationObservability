@@ -14,8 +14,7 @@
         "builtin.intent_resolution",
         "builtin.customer_satisfaction",
         "builtin.tool_call_accuracy",
-        "builtin.deflection_rate",
-        ""
+        "builtin.deflection_rate"
     ],
     "data": [
         {
