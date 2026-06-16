@@ -57,13 +57,13 @@ def main():
     )        
     print(f"Agent created (id: {agent.id}, name: {agent.name}, version: {agent.version})")
 
-    # Combine all versions: e.g. "1,2,3"
+    # Combine all versions: e.g. "WealthAgent:1,WealthAgent:2"
     all_versions = previous_versions + [agent.version]
 
     github_output = os.environ.get("GITHUB_OUTPUT")
     if github_output:
         with open(github_output, "a") as f:
-            versions_str = ",".join(str(v) for v in all_versions)
+            versions_str = ",".join(f"{AGENT_NAME}:{v}" for v in all_versions)
             f.write(f"AGENT_VERSIONS={versions_str}\n")
 
 
