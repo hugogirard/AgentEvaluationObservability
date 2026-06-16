@@ -51,6 +51,9 @@ jobs:
         needs: configure-foundry-agents
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout code
+              uses: actions/checkout@v6
+
             - name: Run Evaluation
               uses: microsoft/ai-agent-evals@v3-beta
               with:
