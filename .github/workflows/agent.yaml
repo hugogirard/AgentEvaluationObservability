@@ -43,4 +43,16 @@ jobs:
               env:
                   GH_TOKEN: ${{ secrets.PA_TOKEN }}
               run: |
-                  gh secret set AGENT_VERSION --body "${{ steps.create-agent.outputs.AGENT_VERSION }}"
+                  gh secret set AGENT_VERSIONS --body "${{ steps.create-agent.outputs.AGENT_VERSIONS }}"
+
+    run-agent-evaluations:
+        needs: configure-foundry-agents
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run Evaluation
+              uses: microsoft/ai-agent-evals@v3-beta
+              with:
+                  azure-ai-project-endpoint: ${{secrets.PROJECT_ENDPOINT}}
+                  deployment-name: ${{secrets.CHAT_COMPLETION_MODEL}}
+                  agent-ids: ${{secrets.AGENT_VERSIONS}}
+                  data-path: ${{ github.workspace }}/evaluation//dataset//cicd.json
