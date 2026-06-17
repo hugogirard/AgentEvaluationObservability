@@ -12,10 +12,32 @@
         "builtin.task_adherence",
         "builtin.relevance",
         "builtin.intent_resolution",
-        "builtin.customer_satisfaction",
-        "builtin.tool_call_accuracy",
-        "builtin.deflection_rate"
+        "builtin.tool_call_accuracy"
     ],
+    "evaluator_parameters": {
+        "builtin.groundedness": {
+            "threshold": 3
+        },
+        "builtin.fluency": {
+            "threshold": 3
+        },
+        "builtin.coherence": {
+            "threshold": 3
+        },
+        "builtin.task_adherence": {
+            "threshold": 3
+        },
+        "builtin.relevance": {
+            "threshold": 3
+        },
+        "builtin.intent_resolution": {
+            "threshold": 3
+        },
+        "builtin.tool_call_accuracy": {
+            "threshold": 3
+        }
+    },
+    "data_mapping": {},
     "data": [
         {
             "query": "Tell me about Tokyo disneyland"

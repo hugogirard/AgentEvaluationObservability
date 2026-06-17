@@ -68,3 +68,91 @@ This project runs **14 built-in evaluators** against the agent (defined in [`eva
 | **Relevance** | Measures how relevant the response is with respect to the query. | Identifies off-topic answers — e.g., the user asks about a specific client and the agent responds with generic financial advice. |
 
 > **Reference:** [Agent Evaluators documentation](https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators) · [Built-in Evaluators reference](https://learn.microsoft.com/en-us/azure/foundry/concepts/built-in-evaluators)
+
+## Deploy to Your Tenant
+
+### 1. Fork the Repository
+
+Fork this repository into your own GitHub account or organization by clicking **Fork** at the top-right of the repo page.
+
+### 2. Create a Service Principal and Save as Secret
+
+The GitHub Actions workflow uses [`Azure/login@v2`](https://github.com/Azure/login/#login-with-a-service-principal-secret) to authenticate against your Azure tenant.
+
+1. Create a Service Principal with contributor access to your subscription:
+
+   ```bash
+   az ad sp create-for-rbac --name "github-agent-eval" \
+     --role contributor \
+     --scopes /subscriptions/<SUBSCRIPTION_ID> \
+     --sdk-auth
+   ```
+
+2. Copy the full JSON output. It looks like this:
+
+   ```json
+   {
+     "clientId": "<GUID>",
+     "clientSecret": "<SECRET>",
+     "subscriptionId": "<GUID>",
+     "tenantId": "<GUID>",
+     ...
+   }
+   ```
+
+3. In your forked repository, go to **Settings → Secrets and variables → Actions → New repository secret**.
+4. Create a secret named **`AZURE_CREDENTIALS`** and paste the JSON output as the value.
+
+### 3. Create a Personal Access Token (PAT)
+
+The workflow needs write access to repository secrets to persist the agent version after creation.
+
+1. Go to **GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**.
+2. Configure the token:
+   - **Repository access:** Select your forked repository only.
+   - **Permissions → Repository permissions → Secrets** → Set to **Read and write**.
+3. Click **Generate token** and copy the value.
+4. In your forked repository, go to **Settings → Secrets and variables → Actions → New repository secret**.
+5. Create a secret named **`PA_TOKEN`** and paste the token value.
+
+### 4. Run the "Create Azure resources" Workflow
+
+Once your secrets are configured, trigger the infrastructure deployment:
+
+1. Go to **Actions → Create Azure resources → Run workflow** (select the `main` branch).
+
+This workflow provisions all required Azure resources in your subscription using Bicep templates (`infra/main.bicep`). It creates:
+
+| Resource | Purpose |
+|----------|---------|
+| **Azure Foundry project** | Hosts the AI agent and evaluation runs |
+| **AI model deployment** | Chat completion model used by the agent and as the evaluation judge |
+| **Azure Container Registry** | Stores the Docker image for the MCP server |
+| **Azure App Service** | Runs the MCP server container (wealth data API) |
+| **Azure Cosmos DB** | Data store for client and fund information |
+| **Azure Monitor** | Observability and tracing for agent interactions |
+
+After deployment completes, the workflow automatically saves the following values as repository secrets (using your `PA_TOKEN`):
+
+- **`CONTAINER_REGISTRY_NAME`** — ACR name for pushing the MCP server image
+- **`MCP_SERVER_NAME`** — App Service name for the MCP server
+- **`PROJECT_ENDPOINT`** — Azure Foundry project endpoint (used by the agent and evaluation workflows)
+- **`CHAT_COMPLETION_MODEL`** — Deployed model name (used for agent creation and evaluation)
+
+> **Note:** This workflow also runs automatically on any push to `main` that modifies files under `infra/`.
+
+### 5. Run the "Deploy MCP Server" Workflow
+
+Once the infrastructure is provisioned, deploy the MCP server that provides the agent with wealth data tools:
+
+1. Go to **Actions → Deploy MCP Server → Run workflow** (select the `main` branch).
+
+This workflow:
+
+1. **Builds** the Docker image from `src/wealth-data-mcp/` using Azure Container Registry (ACR build).
+2. **Pushes** the image to your ACR tagged with the commit SHA and `latest`.
+3. **Deploys** the container to the Azure App Service created in the previous step.
+
+After this completes, the MCP server is live and exposes tools like `get_all_clients`, `get_client_by_id`, and `get_clients_by_risk_profile` — which the Foundry agent will call via a remote MCP connection during evaluation.
+
+> **Note:** This workflow also runs automatically on any push to `main` that modifies files under `src/wealth-data-mcp/`.
