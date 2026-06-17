@@ -29,4 +29,5 @@ Evaluation is used as a quality gate so prompt, tool, or infrastructure changes 
 - [docs/overview/README.md](docs/overview/README.md): Project goals, scenario context, and why evaluation matters.
 - [docs/evaluation/README.md](docs/evaluation/README.md): Model-based evaluation flow and the 14 evaluators used in this demo.
 - [docs/deployment/README.md](docs/deployment/README.md): Step-by-step tenant deployment and GitHub Actions setup.
+- [docs/cicd/README.md](docs/cicd/README.md): Agent CI/CD pipeline — versioning, evaluation, and version comparison.
 - [docs/operations/README.md](docs/operations/README.md): MCP server reliability guidance, including 503 troubleshooting and gunicorn production tuning.

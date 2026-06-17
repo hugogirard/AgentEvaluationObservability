@@ -63,3 +63,11 @@ This workflow:
 3. Deploys the image to the App Service.
 
 After deployment, the MCP server exposes portfolio tools used by the Foundry agent during runtime and evaluation.
+
+## 6. Run Configure Wealth Agent Workflow
+
+Go to Actions -> Configure Wealth Agent -> Run workflow on main.
+
+This workflow contains two jobs that create a new agent version and automatically evaluate it against the previous one. The full CI/CD process is described in the [Agent CI/CD Guide](../cicd/README.md).
+
+> **Note:** This workflow can take up to 20 minutes to complete, mainly due to the evaluation job which runs 14 evaluators across every query in the dataset for each agent version.

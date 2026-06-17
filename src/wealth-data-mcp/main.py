@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from azure.monitor.opentelemetry import configure_azure_monitor
 from starlette.routing import Route
+from starlette.middleware.base import BaseHTTPMiddleware
 import uvicorn
 import os
 import logging
@@ -66,7 +67,26 @@ mcp = FastMCP("Wealth MCP Server",
 
 mcp.add_middleware(SubscriptionKeyMiddleware(api_key=MCP_SERVER_KEY))
 
+# This is a known issue in the MCP Python SDK. Key issues on modelcontextprotocol/python-sdk:
+
+# 2349 — "Streamable HTTP transport rejects Accept: text/event-stream without application/json" (still open)
+# https://github.com/modelcontextprotocol/python-sdk/issues/2349
+# Seems foundry client sent this sometimes
+
+class FixAcceptHeaderMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request, call_next):
+        if request.url.path == "/mcp":
+            # Ensure both required content types are in Accept
+            accept = request.headers.get("accept", "")
+            if "text/event-stream" not in accept or "application/json" not in accept:
+                # Mutate the scope to include the required Accept header
+                raw_headers = [(k, v) for k, v in request.scope["headers"] if k != b"accept"]
+                raw_headers.append((b"accept", b"application/json, text/event-stream"))
+                request.scope["headers"] = raw_headers
+        return await call_next(request)
+
 app = mcp.http_app()
+app.add_middleware(FixAcceptHeaderMiddleware)
 
 if __name__ == "__main__":    
     uvicorn.run(app, host='0.0.0.0', port=9000)    

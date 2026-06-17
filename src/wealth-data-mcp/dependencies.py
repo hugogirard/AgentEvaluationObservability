@@ -6,11 +6,12 @@ import os
 
 load_dotenv(override=True)
 
-client = CosmosClient.from_connection_string(os.getenv('COSMOS_DB_CONNECTION_STRING'))
 
 COSMOS_DB_CONNECTION_STRING = os.getenv('COSMOS_DB_CONNECTION_STRING')
 if not COSMOS_DB_CONNECTION_STRING:
     raise RuntimeError("COSMOS_DB_CONNECTION_STRING environment variable is not set")
+
+client = CosmosClient.from_connection_string(os.getenv('COSMOS_DB_CONNECTION_STRING'))
 
 db = client.get_database_client('contoso')
 container_client = db.get_container_client('client')

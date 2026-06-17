@@ -111,7 +111,7 @@ async def get_clients_by_risk_profile(
     for example when reviewing portfolio drift across a risk segment.
 
     Args:
-        risk_profile: The risk profile to filter by — "Aggressive", "Conservative", or "Moderate".
+        risk_profile: The risk profile to filter by — must be one of "Aggressive", "Conservative", or "Moderate". Do NOT pass fund risk levels such as "High", "Low", "Medium", etc. — those are different from client risk profiles.
     """
     span_context = tracer.start_as_current_span("mcp_tool_get_clients_by_risk_profile") if tracer else None
     if span_context:
