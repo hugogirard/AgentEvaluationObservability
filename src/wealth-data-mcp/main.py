@@ -5,11 +5,24 @@ from middlewares import SubscriptionKeyMiddleware
 from pathlib import Path
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
+from azure.monitor.opentelemetry import configure_azure_monitor
 from starlette.routing import Route
 import uvicorn
 import os
+import logging
 
 load_dotenv(override=True)
+
+if os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'):
+    configure_azure_monitor(
+        connection_string=os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+        logger_name="wealth-mcp-server",
+    )
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
 # Read the expected key from environment variable
 MCP_SERVER_KEY = os.environ["MCP_SERVER_KEY"]

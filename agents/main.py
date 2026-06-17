@@ -10,6 +10,8 @@ def main():
     AGENT_MODEL = os.getenv("AGENT_MODEL")
     AGENT_NAME = 'WealthAgent'
     MCP_CONNECTION_NAME =  'WEALTH-MCP-SERVER'
+    LIMIT_VERSION_RETRIEVAL = 1 # This will factor how many version we compare behind for the evaluation
+                                # in this case always 1 only
 
     project = AIProjectClient(
         endpoint=PROJECT_ENDPOINT,
@@ -37,7 +39,7 @@ def main():
 
     try:
         existing_versions = project.agents.list_versions(agent_name=AGENT_NAME,
-                                                        limit=2,
+                                                        limit=LIMIT_VERSION_RETRIEVAL,
                                                         order='desc')
         previous_versions = [v.version for v in existing_versions]
         previous_versions.reverse()

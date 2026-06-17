@@ -3,9 +3,14 @@ param serverFarmId string
 param location string
 param cosmosDbResourceName string
 param subscriptioKey string = newGuid()
+param applicationInsightResourceName string
 
 resource cosmos 'Microsoft.DocumentDB/databaseAccounts@2025-11-01-preview' existing = {
   name: cosmosDbResourceName
+}
+
+resource insights 'Microsoft.Insights/components@2020-02-02' existing = {
+  name: applicationInsightResourceName
 }
 
 resource web 'Microsoft.Web/sites@2024-11-01' = {
@@ -25,6 +30,14 @@ resource web 'Microsoft.Web/sites@2024-11-01' = {
         {
           name: 'MCP_SERVER_KEY'
           value: subscriptioKey
+        }
+        {
+          name: 'RUNNING_IN_PRODUCTION'
+          value: 'true'
+        }
+        {
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: insights.properties.ConnectionString
         }
       ]
       linuxFxVersion: 'sitecontainers'

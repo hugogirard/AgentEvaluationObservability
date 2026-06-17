@@ -1,12 +1,21 @@
-from typing import Optional
-
+from typing import Iterator, Optional
 from fastmcp import FastMCP
 from fastmcp.dependencies import Depends
-
 from dependencies import get_client_repository
 from repository import ClientRepository
 from models import Client, Holding
 from infrastructure.enum import AdvisorId, RiskProfile
+from opentelemetry import trace
+from opentelemetry.trace import Span
+import logging
+import os
+
+logger = logging.getLogger(__name__)
+
+if os.getenv('APPLICATIONINSIGHTS_CONNECTION_STRING'):
+    tracer = trace.get_tracer('wealth-mcp-server')
+else:
+    tracer = None    
 
 client_mcp = FastMCP(
     "Client Tools",
@@ -24,7 +33,18 @@ async def get_all_clients(
     Returns all clients with their full holdings and account details.
     Use this when you need a complete overview of the book of business.
     """
-    return await repository.get_all()
+
+    span_context = tracer.start_as_current_span("mcp_tool_get_all_clients") if tracer else None
+    if span_context:
+        span_context.__enter__()
+        span = trace.get_current_span()      
+        span.set_attribute("mcp.tool", "get_all_clients")            
+
+    try:
+        return await repository.get_all()
+    finally:
+        if span_context:
+            span_context.__exit__(None,None,None)
 
 @client_mcp.tool()
 async def get_client_by_id(
@@ -38,7 +58,19 @@ async def get_client_by_id(
     Args:
         client_id: The unique client identifier (e.g. "1042", "1105").
     """
-    return await repository.get_by_id(client_id)
+    span_context = tracer.start_as_current_span("mcp_tool_get_client_by_id") if tracer else None
+    if span_context:
+        span_context.__enter__()
+        span = trace.get_current_span()      
+        span.set_attribute("mcp.tool", "get_client_by_id")  
+        span.set_attribute("mcp.tool.client_id", client_id)
+
+    try:
+        return await repository.get_by_id(client_id)
+    finally:
+        if span_context:
+            span_context.__exit__(None,None,None)
+    
 
 
 @client_mcp.tool()
@@ -53,7 +85,20 @@ async def get_clients_by_advisor(
     Args:
         advisor_id: The advisor identifier — one of "ADV-118", "ADV-205", or "ADV-301".
     """
-    return await repository.get_by_advisor(advisor_id.value)
+
+    span_context = tracer.start_as_current_span("mcp_tool_get_clients_by_advisor") if tracer else None
+    if span_context:
+        span_context.__enter__()
+        span = trace.get_current_span()      
+        span.set_attribute("mcp.tool", "get_clients_by_advisor")  
+        span.set_attribute("mcp.tool.advisor_id", advisor_id.value)
+
+    try:
+        return await repository.get_by_advisor(advisor_id.value)
+    finally:
+        if span_context:
+            span_context.__exit__(None,None,None)
+    
 
 
 @client_mcp.tool()
@@ -68,75 +113,16 @@ async def get_clients_by_risk_profile(
     Args:
         risk_profile: The risk profile to filter by — "Aggressive", "Conservative", or "Moderate".
     """
-    return await repository.get_by_risk_profile(risk_profile.value)
-
-
-# @client_mcp.tool()
-# async def add_client_holding(
-#     client_id: str,
-#     fund_code: str,
-#     fund_name: str,
-#     units: float,
-#     market_value: float,
-#     book_cost: float,
-#     repository: ClientRepository = Depends(get_client_repository),
-# ) -> Client:
-#     """Add a new fund holding to a client's portfolio.
-#     Portfolio weights and total balance are automatically recalculated after the addition.
-
-#     Args:
-#         client_id: The client identifier to add the holding to (e.g. "1042").
-#         fund_code: The fund code for the new holding (e.g. "GEG-7200", "CDIV").
-#         fund_name: Display name of the fund (e.g. "Global Equity Growth Fund").
-#         units: Number of units or shares to add.
-#         market_value: Current market value in CAD.
-#         book_cost: Original cost basis in CAD.
-#     """
-#     holding = Holding(
-#         fundCode=fund_code,
-#         fundName=fund_name,
-#         units=units,
-#         marketValue=market_value,
-#         bookCost=book_cost,
-#         weight=0.0,
-#     )
-#     return repository.add_holding(client_id, holding)
-
-
-# @client_mcp.tool()
-# async def remove_client_holding(
-#     client_id: str,
-#     fund_code: str,
-#     repository: ClientRepository = Depends(get_client_repository),
-# ) -> Client:
-#     """Remove a fund holding from a client's portfolio.
-#     Portfolio weights and total balance are automatically recalculated after the removal.
-
-#     Args:
-#         client_id: The client identifier (e.g. "1042").
-#         fund_code: The fund code of the holding to remove (e.g. "GEG-7200").
-#     """
-#     return repository.remove_holding(client_id, fund_code)
-
-
-# @client_mcp.tool()
-# async def update_client_holding(
-#     client_id: str,
-#     fund_code: str,
-#     units: Optional[float] = None,
-#     market_value: Optional[float] = None,
-#     book_cost: Optional[float] = None,
-#     repository: ClientRepository = Depends(get_client_repository),
-# ) -> Client:
-#     """Update an existing holding in a client's portfolio.
-#     Only provided fields are changed; omitted fields remain as-is.
-#     Portfolio weights and total balance are automatically recalculated.
-
-#     Args:
-#         client_id: The client identifier (e.g. "1042").
-#         fund_code: The fund code of the holding to update (e.g. "GEG-7200").
-#         units: New number of units or shares, or omit to leave unchanged.
-#         market_value: New market value in CAD, or omit to leave unchanged.
-#         book_cost: New cost basis in CAD, or omit to leave unchanged.
-#     """
-#     return repository.update_holding(client_id, fund_code, units=units, market_value=market_value, book_cost=book_cost)
+    span_context = tracer.start_as_current_span("mcp_tool_get_clients_by_risk_profile") if tracer else None
+    if span_context:
+        span_context.__enter__()
+        span = trace.get_current_span()      
+        span.set_attribute("mcp.tool", "get_clients_by_risk_profile")  
+        span.set_attribute("mcp.tool.risk_profile", risk_profile.value)
+    
+    try:
+        return await repository.get_by_risk_profile(risk_profile.value)
+    finally:
+        if span_context:
+            span_context.__exit__(None,None,None)
+   
