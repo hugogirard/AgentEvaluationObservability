@@ -88,5 +88,9 @@ class FixAcceptHeaderMiddleware(BaseHTTPMiddleware):
 app = mcp.http_app()
 app.add_middleware(FixAcceptHeaderMiddleware)
 
+# Mount health check endpoint for Azure App Service health probes
+app.routes.append(Route("/health", health_endpoint))
+app.routes.append(Route("/", health_endpoint))
+
 if __name__ == "__main__":    
-    uvicorn.run(app, host='0.0.0.0', port=9000)    
+    uvicorn.run(app, host='0.0.0.0', port=8080)    

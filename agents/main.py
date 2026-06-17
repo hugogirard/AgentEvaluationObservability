@@ -2,6 +2,7 @@ from azure.ai.projects import AIProjectClient
 from azure.identity import AzureCliCredential
 from azure.ai.projects.models import PromptAgentDefinition, Connection, MCPTool
 from dotenv import load_dotenv
+from datetime import datetime, timezone
 import os
 
 def main():
@@ -49,6 +50,8 @@ def main():
     with open('prompt.txt', 'r', encoding='utf-8') as file:
         prompt = file.read()
 
+    build_timestamp = datetime.now(timezone.utc).isoformat()
+
     agent = project.agents.create_version(
         agent_name=AGENT_NAME,
         definition=PromptAgentDefinition(
@@ -56,6 +59,8 @@ def main():
             instructions=prompt,
             tools=[tool]
         ),
+        description="Wealth-advisory assistant that helps financial advisors manage client portfolios and explore the bank's fund catalog.",
+        metadata={"built_on": build_timestamp},
     )        
     print(f"Agent created (id: {agent.id}, name: {agent.name}, version: {agent.version})")
 
