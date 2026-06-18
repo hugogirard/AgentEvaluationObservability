@@ -89,3 +89,22 @@ After the workflow completes, evaluation results are available in:
 
 1. **GitHub Actions logs** — the evaluation action prints summary metrics in the workflow output.
 2. **Azure Foundry portal** — navigate to your Foundry project to view detailed evaluation runs, per-query scores, and version comparison dashboards.
+
+## Evaluation reports
+
+![Evaluation Reports](../../images/evaluationReports.png)
+
+### How the comparison works
+
+The evaluation action assigns roles automatically based on the order of the agent versions passed in `agent-ids`:
+
+- **Baseline** — the *previous* version (e.g. `WealthAgent:5`). This is the reference point against which improvements are measured.
+- **Treatment** — the *new* version (e.g. `WealthAgent:6`). This is the version created by the current pipeline run.
+
+Each query in the dataset is sent to both versions independently. A judge model then scores every response using the 12 configured evaluators. The results table shows the baseline score alongside the treatment delta (e.g. `+0.05` or `-0.02`), making it easy to spot regressions or improvements at a glance.
+
+### Reading the results
+
+In the screenshot above, `WealthAgent:5` is the baseline and `WealthAgent:6` is the treatment. Because **both versions share the same prompt, model, and tool configuration**, the deltas are near zero and all metrics are marked **Inconclusive** — there is no statistically meaningful difference between the two. This is the expected outcome when no changes have been made to the agent definition.
+
+In a real iteration cycle, you would modify the agent prompt or tool wiring, trigger the pipeline, and look for positive deltas on the treatment version to confirm your change improved quality before promoting it.

@@ -402,5 +402,1313 @@
             }
         ],
         "_notes": "UNDERINVESTED: 72.8% fixed income vs. Moderate target of ~50%. Cash-heavy — redeployment opportunity into equities."
+    },
+    {
+        "id": "client-1902",
+        "clientId": "1902",
+        "name": "Olivia Tremblay",
+        "riskProfile": "Aggressive",
+        "accountType": "TFSA",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-05-20",
+        "totalBalance": 124500.0,
+        "holdings": [
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 870.0,
+                "marketValue": 62901.0,
+                "bookCost": 55000.0,
+                "weight": 50.5
+            },
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 1600.0,
+                "marketValue": 30240.0,
+                "bookCost": 27000.0,
+                "weight": 24.3
+            },
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 280.0,
+                "marketValue": 23240.0,
+                "bookCost": 20000.0,
+                "weight": 18.7
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 537.0,
+                "marketValue": 8135.55,
+                "bookCost": 8000.0,
+                "weight": 6.5
+            }
+        ]
+    },
+    {
+        "id": "client-1918",
+        "clientId": "1918",
+        "name": "William Nguyen",
+        "riskProfile": "Conservative",
+        "accountType": "RRSP",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-03-10",
+        "totalBalance": 267000.0,
+        "holdings": [
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 8500.0,
+                "marketValue": 85000.0,
+                "bookCost": 85000.0,
+                "weight": 31.8
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 7100.0,
+                "marketValue": 74905.0,
+                "bookCost": 72000.0,
+                "weight": 28.1
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 4500.0,
+                "marketValue": 68175.0,
+                "bookCost": 66000.0,
+                "weight": 25.5
+            },
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 38920.0,
+                "bookCost": 38920.0,
+                "weight": 14.6
+            }
+        ]
+    },
+    {
+        "id": "client-1935",
+        "clientId": "1935",
+        "name": "Fatima Al-Hassan",
+        "riskProfile": "Moderate",
+        "accountType": "Non-Registered",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-04-22",
+        "totalBalance": 385000.0,
+        "holdings": [
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 5900.0,
+                "marketValue": 149978.0,
+                "bookCost": 135000.0,
+                "weight": 38.9
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 3200.0,
+                "marketValue": 70720.0,
+                "bookCost": 62000.0,
+                "weight": 18.4
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 2800.0,
+                "marketValue": 91000.0,
+                "bookCost": 80000.0,
+                "weight": 23.6
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 6950.0,
+                "marketValue": 73322.5,
+                "bookCost": 70000.0,
+                "weight": 19.0
+            }
+        ]
+    },
+    {
+        "id": "client-1951",
+        "clientId": "1951",
+        "name": "Thomas Wright",
+        "riskProfile": "Aggressive",
+        "accountType": "RRSP",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-02-14",
+        "totalBalance": 712000.0,
+        "holdings": [
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 4150.0,
+                "marketValue": 300045.0,
+                "bookCost": 260000.0,
+                "weight": 42.1
+            },
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 2400.0,
+                "marketValue": 199200.0,
+                "bookCost": 175000.0,
+                "weight": 28.0
+            },
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 5300.0,
+                "marketValue": 100170.0,
+                "bookCost": 90000.0,
+                "weight": 14.1
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 2480.0,
+                "marketValue": 80600.0,
+                "bookCost": 70000.0,
+                "weight": 11.3
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 3200.0,
+                "marketValue": 32000.0,
+                "bookCost": 32000.0,
+                "weight": 4.5
+            }
+        ]
+    },
+    {
+        "id": "client-1967",
+        "clientId": "1967",
+        "name": "Priya Sharma",
+        "riskProfile": "Moderate",
+        "accountType": "TFSA",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-05-28",
+        "totalBalance": 88500.0,
+        "holdings": [
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 1750.0,
+                "marketValue": 44485.0,
+                "bookCost": 40000.0,
+                "weight": 50.3
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 650.0,
+                "marketValue": 14365.0,
+                "bookCost": 13000.0,
+                "weight": 16.2
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 1800.0,
+                "marketValue": 18990.0,
+                "bookCost": 18000.0,
+                "weight": 21.5
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 1065.0,
+                "marketValue": 10650.0,
+                "bookCost": 10650.0,
+                "weight": 12.0
+            }
+        ]
+    },
+    {
+        "id": "client-1983",
+        "clientId": "1983",
+        "name": "Daniel Johansson",
+        "riskProfile": "Conservative",
+        "accountType": "RRIF",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-01-20",
+        "totalBalance": 520000.0,
+        "holdings": [
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 200000.0,
+                "bookCost": 200000.0,
+                "weight": 38.5
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 14200.0,
+                "marketValue": 149810.0,
+                "bookCost": 145000.0,
+                "weight": 28.8
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 7250.0,
+                "marketValue": 109837.5,
+                "bookCost": 105000.0,
+                "weight": 21.1
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 6035.0,
+                "marketValue": 60350.0,
+                "bookCost": 60350.0,
+                "weight": 11.6
+            }
+        ]
+    },
+    {
+        "id": "client-2001",
+        "clientId": "2001",
+        "name": "Sophie Martin",
+        "riskProfile": "Aggressive",
+        "accountType": "Non-Registered",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-04-30",
+        "totalBalance": 445000.0,
+        "holdings": [
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 2700.0,
+                "marketValue": 224100.0,
+                "bookCost": 195000.0,
+                "weight": 50.4
+            },
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 1650.0,
+                "marketValue": 119295.0,
+                "bookCost": 105000.0,
+                "weight": 26.8
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 2300.0,
+                "marketValue": 50830.0,
+                "bookCost": 45000.0,
+                "weight": 11.4
+            },
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 2680.0,
+                "marketValue": 50652.0,
+                "bookCost": 45000.0,
+                "weight": 11.4
+            }
+        ]
+    },
+    {
+        "id": "client-2018",
+        "clientId": "2018",
+        "name": "Carlos Mendez",
+        "riskProfile": "Moderate",
+        "accountType": "RRSP",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-03-15",
+        "totalBalance": 198000.0,
+        "holdings": [
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 2000.0,
+                "marketValue": 65000.0,
+                "bookCost": 58000.0,
+                "weight": 32.8
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 2100.0,
+                "marketValue": 53382.0,
+                "bookCost": 48000.0,
+                "weight": 27.0
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 4200.0,
+                "marketValue": 44310.0,
+                "bookCost": 42000.0,
+                "weight": 22.4
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 2320.0,
+                "marketValue": 35148.0,
+                "bookCost": 34000.0,
+                "weight": 17.8
+            }
+        ]
+    },
+    {
+        "id": "client-2034",
+        "clientId": "2034",
+        "name": "Jennifer O'Brien",
+        "riskProfile": "Conservative",
+        "accountType": "TFSA",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-05-05",
+        "totalBalance": 72000.0,
+        "holdings": [
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 3000.0,
+                "marketValue": 30000.0,
+                "bookCost": 30000.0,
+                "weight": 41.7
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 1650.0,
+                "marketValue": 24997.5,
+                "bookCost": 24000.0,
+                "weight": 34.7
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 1612.0,
+                "marketValue": 17006.6,
+                "bookCost": 16500.0,
+                "weight": 23.6
+            }
+        ]
+    },
+    {
+        "id": "client-2050",
+        "clientId": "2050",
+        "name": "Ahmed Youssef",
+        "riskProfile": "Aggressive",
+        "accountType": "RRSP",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-02-10",
+        "totalBalance": 335000.0,
+        "holdings": [
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 7400.0,
+                "marketValue": 139860.0,
+                "bookCost": 120000.0,
+                "weight": 41.7
+            },
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 1450.0,
+                "marketValue": 104835.0,
+                "bookCost": 92000.0,
+                "weight": 31.3
+            },
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 750.0,
+                "marketValue": 62250.0,
+                "bookCost": 55000.0,
+                "weight": 18.6
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 865.0,
+                "marketValue": 28112.5,
+                "bookCost": 25000.0,
+                "weight": 8.4
+            }
+        ]
+    },
+    {
+        "id": "client-2067",
+        "clientId": "2067",
+        "name": "Rachel Leblanc",
+        "riskProfile": "Moderate",
+        "accountType": "Non-Registered",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-04-12",
+        "totalBalance": 510000.0,
+        "holdings": [
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 5200.0,
+                "marketValue": 114920.0,
+                "bookCost": 100000.0,
+                "weight": 22.5
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 5500.0,
+                "marketValue": 139810.0,
+                "bookCost": 125000.0,
+                "weight": 27.4
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 3700.0,
+                "marketValue": 120250.0,
+                "bookCost": 108000.0,
+                "weight": 23.6
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 8550.0,
+                "marketValue": 90202.5,
+                "bookCost": 87000.0,
+                "weight": 17.7
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 4480.0,
+                "marketValue": 44800.0,
+                "bookCost": 44800.0,
+                "weight": 8.8
+            }
+        ]
+    },
+    {
+        "id": "client-2083",
+        "clientId": "2083",
+        "name": "Kevin Tanaka",
+        "riskProfile": "Aggressive",
+        "accountType": "TFSA",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-05-10",
+        "totalBalance": 95000.0,
+        "holdings": [
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 690.0,
+                "marketValue": 49887.0,
+                "bookCost": 43000.0,
+                "weight": 52.5
+            },
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 350.0,
+                "marketValue": 29050.0,
+                "bookCost": 25000.0,
+                "weight": 30.6
+            },
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 850.0,
+                "marketValue": 16065.0,
+                "bookCost": 14000.0,
+                "weight": 16.9
+            }
+        ]
+    },
+    {
+        "id": "client-2099",
+        "clientId": "2099",
+        "name": "Natasha Volkov",
+        "riskProfile": "Conservative",
+        "accountType": "RRSP",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-02-22",
+        "totalBalance": 340000.0,
+        "holdings": [
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 125000.0,
+                "bookCost": 125000.0,
+                "weight": 36.8
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 6600.0,
+                "marketValue": 99990.0,
+                "bookCost": 96000.0,
+                "weight": 29.4
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 5700.0,
+                "marketValue": 60135.0,
+                "bookCost": 58000.0,
+                "weight": 17.7
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 2160.0,
+                "marketValue": 54907.2,
+                "bookCost": 50000.0,
+                "weight": 16.1
+            }
+        ]
+    },
+    {
+        "id": "client-2115",
+        "clientId": "2115",
+        "name": "Brandon Mitchell",
+        "riskProfile": "Moderate",
+        "accountType": "RRSP",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-01-28",
+        "totalBalance": 178000.0,
+        "holdings": [
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 850.0,
+                "marketValue": 61455.0,
+                "bookCost": 55000.0,
+                "weight": 34.5
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 1500.0,
+                "marketValue": 48750.0,
+                "bookCost": 43000.0,
+                "weight": 27.4
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 3800.0,
+                "marketValue": 40090.0,
+                "bookCost": 38000.0,
+                "weight": 22.5
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 2770.0,
+                "marketValue": 27700.0,
+                "bookCost": 27700.0,
+                "weight": 15.6
+            }
+        ]
+    },
+    {
+        "id": "client-2131",
+        "clientId": "2131",
+        "name": "Isabelle Gagné",
+        "riskProfile": "Aggressive",
+        "accountType": "Non-Registered",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-03-30",
+        "totalBalance": 620000.0,
+        "holdings": [
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 3100.0,
+                "marketValue": 257300.0,
+                "bookCost": 225000.0,
+                "weight": 41.5
+            },
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 2200.0,
+                "marketValue": 159060.0,
+                "bookCost": 140000.0,
+                "weight": 25.7
+            },
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 4500.0,
+                "marketValue": 85050.0,
+                "bookCost": 75000.0,
+                "weight": 13.7
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 2850.0,
+                "marketValue": 62985.0,
+                "bookCost": 55000.0,
+                "weight": 10.2
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 1710.0,
+                "marketValue": 55575.0,
+                "bookCost": 48000.0,
+                "weight": 9.0
+            }
+        ]
+    },
+    {
+        "id": "client-2148",
+        "clientId": "2148",
+        "name": "George Papadopoulos",
+        "riskProfile": "Conservative",
+        "accountType": "RRIF",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-04-25",
+        "totalBalance": 430000.0,
+        "holdings": [
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 180000.0,
+                "bookCost": 180000.0,
+                "weight": 41.9
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 10000.0,
+                "marketValue": 100000.0,
+                "bookCost": 100000.0,
+                "weight": 23.3
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 9480.0,
+                "marketValue": 100014.0,
+                "bookCost": 97000.0,
+                "weight": 23.3
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 3300.0,
+                "marketValue": 49995.0,
+                "bookCost": 48000.0,
+                "weight": 11.6
+            }
+        ]
+    },
+    {
+        "id": "client-2164",
+        "clientId": "2164",
+        "name": "Amanda Foster",
+        "riskProfile": "Moderate",
+        "accountType": "TFSA",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-05-18",
+        "totalBalance": 67500.0,
+        "holdings": [
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 1200.0,
+                "marketValue": 30504.0,
+                "bookCost": 27000.0,
+                "weight": 45.2
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 550.0,
+                "marketValue": 12155.0,
+                "bookCost": 11000.0,
+                "weight": 18.0
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 480.0,
+                "marketValue": 15600.0,
+                "bookCost": 14000.0,
+                "weight": 23.1
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 925.0,
+                "marketValue": 9250.0,
+                "bookCost": 9250.0,
+                "weight": 13.7
+            }
+        ]
+    },
+    {
+        "id": "client-2180",
+        "clientId": "2180",
+        "name": "Victor Petrov",
+        "riskProfile": "Aggressive",
+        "accountType": "RRSP",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-02-05",
+        "totalBalance": 490000.0,
+        "holdings": [
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 3400.0,
+                "marketValue": 245820.0,
+                "bookCost": 215000.0,
+                "weight": 50.2
+            },
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 6200.0,
+                "marketValue": 117180.0,
+                "bookCost": 100000.0,
+                "weight": 23.9
+            },
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 1100.0,
+                "marketValue": 91300.0,
+                "bookCost": 80000.0,
+                "weight": 18.6
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 2350.0,
+                "marketValue": 35602.5,
+                "bookCost": 34000.0,
+                "weight": 7.3
+            }
+        ]
+    },
+    {
+        "id": "client-2196",
+        "clientId": "2196",
+        "name": "Marie-Claire Bouchard",
+        "riskProfile": "Conservative",
+        "accountType": "RRSP",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-03-18",
+        "totalBalance": 155000.0,
+        "holdings": [
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 4100.0,
+                "marketValue": 62115.0,
+                "bookCost": 60000.0,
+                "weight": 40.1
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 4500.0,
+                "marketValue": 45000.0,
+                "bookCost": 45000.0,
+                "weight": 29.0
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 3030.0,
+                "marketValue": 31966.5,
+                "bookCost": 31000.0,
+                "weight": 20.6
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 625.0,
+                "marketValue": 15887.5,
+                "bookCost": 15000.0,
+                "weight": 10.3
+            }
+        ]
+    },
+    {
+        "id": "client-2212",
+        "clientId": "2212",
+        "name": "Jason Park",
+        "riskProfile": "Moderate",
+        "accountType": "Non-Registered",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-04-08",
+        "totalBalance": 295000.0,
+        "holdings": [
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 1200.0,
+                "marketValue": 86760.0,
+                "bookCost": 78000.0,
+                "weight": 29.4
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 2900.0,
+                "marketValue": 73718.0,
+                "bookCost": 66000.0,
+                "weight": 25.0
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 2400.0,
+                "marketValue": 53040.0,
+                "bookCost": 48000.0,
+                "weight": 18.0
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 4800.0,
+                "marketValue": 50640.0,
+                "bookCost": 48000.0,
+                "weight": 17.2
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 3080.0,
+                "marketValue": 30800.0,
+                "bookCost": 30800.0,
+                "weight": 10.4
+            }
+        ]
+    },
+    {
+        "id": "client-2228",
+        "clientId": "2228",
+        "name": "Elena Rodriguez",
+        "riskProfile": "Aggressive",
+        "accountType": "TFSA",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-05-25",
+        "totalBalance": 142000.0,
+        "holdings": [
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 820.0,
+                "marketValue": 68060.0,
+                "bookCost": 58000.0,
+                "weight": 47.9
+            },
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 2100.0,
+                "marketValue": 39690.0,
+                "bookCost": 34000.0,
+                "weight": 27.9
+            },
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 370.0,
+                "marketValue": 26751.0,
+                "bookCost": 23000.0,
+                "weight": 18.8
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 230.0,
+                "marketValue": 7475.0,
+                "bookCost": 6500.0,
+                "weight": 5.3
+            }
+        ]
+    },
+    {
+        "id": "client-2244",
+        "clientId": "2244",
+        "name": "Patrick O'Sullivan",
+        "riskProfile": "Moderate",
+        "accountType": "RRSP",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-01-05",
+        "totalBalance": 420000.0,
+        "holdings": [
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 6500.0,
+                "marketValue": 165230.0,
+                "bookCost": 150000.0,
+                "weight": 39.3
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 3600.0,
+                "marketValue": 79560.0,
+                "bookCost": 70000.0,
+                "weight": 18.9
+            },
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 2600.0,
+                "marketValue": 84500.0,
+                "bookCost": 75000.0,
+                "weight": 20.1
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 5200.0,
+                "marketValue": 54860.0,
+                "bookCost": 52000.0,
+                "weight": 13.1
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 3580.0,
+                "marketValue": 35800.0,
+                "bookCost": 35800.0,
+                "weight": 8.5
+            }
+        ]
+    },
+    {
+        "id": "client-2260",
+        "clientId": "2260",
+        "name": "Maya Johnson",
+        "riskProfile": "Conservative",
+        "accountType": "RRIF",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-02-18",
+        "totalBalance": 285000.0,
+        "holdings": [
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 100000.0,
+                "bookCost": 100000.0,
+                "weight": 35.1
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 8050.0,
+                "marketValue": 84927.5,
+                "bookCost": 82000.0,
+                "weight": 29.8
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 4300.0,
+                "marketValue": 65145.0,
+                "bookCost": 63000.0,
+                "weight": 22.9
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 3490.0,
+                "marketValue": 34900.0,
+                "bookCost": 34900.0,
+                "weight": 12.2
+            }
+        ]
+    },
+    {
+        "id": "client-2276",
+        "clientId": "2276",
+        "name": "Lucas Fernandez",
+        "riskProfile": "Aggressive",
+        "accountType": "Non-Registered",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-04-15",
+        "totalBalance": 830000.0,
+        "holdings": [
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 5500.0,
+                "marketValue": 397650.0,
+                "bookCost": 350000.0,
+                "weight": 47.9
+            },
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 2500.0,
+                "marketValue": 207500.0,
+                "bookCost": 180000.0,
+                "weight": 25.0
+            },
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 5800.0,
+                "marketValue": 109620.0,
+                "bookCost": 95000.0,
+                "weight": 13.2
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 3500.0,
+                "marketValue": 77350.0,
+                "bookCost": 68000.0,
+                "weight": 9.3
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 3790.0,
+                "marketValue": 37900.0,
+                "bookCost": 37900.0,
+                "weight": 4.6
+            }
+        ]
+    },
+    {
+        "id": "client-2292",
+        "clientId": "2292",
+        "name": "Christine Lee",
+        "riskProfile": "Moderate",
+        "accountType": "TFSA",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-05-12",
+        "totalBalance": 105000.0,
+        "holdings": [
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 1600.0,
+                "marketValue": 40672.0,
+                "bookCost": 36000.0,
+                "weight": 38.7
+            },
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 380.0,
+                "marketValue": 27474.0,
+                "bookCost": 24000.0,
+                "weight": 26.2
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 2250.0,
+                "marketValue": 23737.5,
+                "bookCost": 23000.0,
+                "weight": 22.6
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 1310.0,
+                "marketValue": 13100.0,
+                "bookCost": 13100.0,
+                "weight": 12.5
+            }
+        ]
+    },
+    {
+        "id": "client-2308",
+        "clientId": "2308",
+        "name": "Derek Campbell",
+        "riskProfile": "Conservative",
+        "accountType": "RRSP",
+        "advisorId": "ADV-205",
+        "lastReviewDate": "2026-03-05",
+        "totalBalance": 230000.0,
+        "holdings": [
+            {
+                "fundCode": "GIC-1800",
+                "fundName": "Premium GIC 18-Month",
+                "units": 1,
+                "marketValue": 90000.0,
+                "bookCost": 90000.0,
+                "weight": 39.1
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 5000.0,
+                "marketValue": 75750.0,
+                "bookCost": 73000.0,
+                "weight": 32.9
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 4000.0,
+                "marketValue": 40000.0,
+                "bookCost": 40000.0,
+                "weight": 17.4
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 950.0,
+                "marketValue": 24149.0,
+                "bookCost": 22000.0,
+                "weight": 10.5
+            }
+        ]
+    },
+    {
+        "id": "client-2324",
+        "clientId": "2324",
+        "name": "Samantha Chu",
+        "riskProfile": "Aggressive",
+        "accountType": "RRSP",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-04-28",
+        "totalBalance": 265000.0,
+        "holdings": [
+            {
+                "fundCode": "GEG-7200",
+                "fundName": "Global Equity Growth Fund",
+                "units": 1500.0,
+                "marketValue": 124500.0,
+                "bookCost": 108000.0,
+                "weight": 47.0
+            },
+            {
+                "fundCode": "USIDX-500",
+                "fundName": "U.S. Index Fund",
+                "units": 920.0,
+                "marketValue": 66516.0,
+                "bookCost": 58000.0,
+                "weight": 25.1
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 1800.0,
+                "marketValue": 39780.0,
+                "bookCost": 35000.0,
+                "weight": 15.0
+            },
+            {
+                "fundCode": "EMK-6100",
+                "fundName": "Emerging Markets Equity Fund",
+                "units": 1800.0,
+                "marketValue": 34020.0,
+                "bookCost": 30000.0,
+                "weight": 12.8
+            }
+        ]
+    },
+    {
+        "id": "client-2340",
+        "clientId": "2340",
+        "name": "Andrew Wilson",
+        "riskProfile": "Moderate",
+        "accountType": "Non-Registered",
+        "advisorId": "ADV-301",
+        "lastReviewDate": "2026-01-12",
+        "totalBalance": 375000.0,
+        "holdings": [
+            {
+                "fundCode": "CDIV",
+                "fundName": "Canadian Dividend ETF",
+                "units": 3800.0,
+                "marketValue": 123500.0,
+                "bookCost": 110000.0,
+                "weight": 32.9
+            },
+            {
+                "fundCode": "REIT-900",
+                "fundName": "Canadian Real Estate Fund",
+                "units": 3100.0,
+                "marketValue": 68510.0,
+                "bookCost": 60000.0,
+                "weight": 18.3
+            },
+            {
+                "fundCode": "BGF-4501",
+                "fundName": "Balanced Growth Fund",
+                "units": 3200.0,
+                "marketValue": 81344.0,
+                "bookCost": 72000.0,
+                "weight": 21.7
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 4000.0,
+                "marketValue": 60600.0,
+                "bookCost": 58000.0,
+                "weight": 16.2
+            },
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 4100.0,
+                "marketValue": 41000.0,
+                "bookCost": 41000.0,
+                "weight": 10.9
+            }
+        ]
+    },
+    {
+        "id": "client-2356",
+        "clientId": "2356",
+        "name": "Hannah Morrison",
+        "riskProfile": "Conservative",
+        "accountType": "TFSA",
+        "advisorId": "ADV-118",
+        "lastReviewDate": "2026-05-30",
+        "totalBalance": 48000.0,
+        "holdings": [
+            {
+                "fundCode": "HISA-100",
+                "fundName": "High-Interest Savings Fund",
+                "units": 2200.0,
+                "marketValue": 22000.0,
+                "bookCost": 22000.0,
+                "weight": 45.8
+            },
+            {
+                "fundCode": "STB-3300",
+                "fundName": "Short-Term Bond Fund",
+                "units": 1100.0,
+                "marketValue": 16665.0,
+                "bookCost": 16000.0,
+                "weight": 34.7
+            },
+            {
+                "fundCode": "CORP-2200",
+                "fundName": "Corporate Bond Fund",
+                "units": 885.0,
+                "marketValue": 9336.75,
+                "bookCost": 9000.0,
+                "weight": 19.5
+            }
+        ]
     }
 ]
