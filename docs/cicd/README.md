@@ -92,6 +92,25 @@ After the workflow completes, evaluation results are available in:
 
 ## Evaluation reports
 
+### First run (single version)
+
+On the very first pipeline run there is no previous version to compare against — only `WealthAgent:1` exists. The evaluation action runs every query against this single version and produces a standalone results table with pass rates, average scores, and confidence intervals per evaluator.
+
+![First Run](../../images/firstrun.png)
+
+#### Understanding the results table
+
+| Column | Description |
+|--------|-------------|
+| **Pass Rate** | Percentage of queries that scored at or above the evaluator's threshold (3 out of 5). A 100% pass rate means every query met the minimum quality bar. |
+| **Passed/Total** | Number of queries that passed vs. total queries evaluated (e.g. `43/43` means all 43 queries passed). |
+| **Avg Score** | Mean score across all queries for that evaluator, on a 1–5 scale (higher is better). |
+| **95% Confidence Interval** | Statistical range within which the true pass rate is expected to fall 95% of the time. Narrower intervals indicate more reliable estimates. Displays **N/A** when the pass rate is 100% or the sample size is too small for meaningful bounds. |
+
+### Subsequent runs (version comparison)
+
+Starting from the second run onward, the pipeline always evaluates **two versions side by side**: the previous version as baseline and the newly created version as treatment.
+
 ![Evaluation Reports](../../images/evaluationReports.png)
 
 ### How the comparison works
@@ -108,3 +127,23 @@ Each query in the dataset is sent to both versions independently. A judge model 
 In the screenshot above, `WealthAgent:5` is the baseline and `WealthAgent:6` is the treatment. Because **both versions share the same prompt, model, and tool configuration**, the deltas are near zero and all metrics are marked **Inconclusive** — there is no statistically meaningful difference between the two. This is the expected outcome when no changes have been made to the agent definition.
 
 In a real iteration cycle, you would modify the agent prompt or tool wiring, trigger the pipeline, and look for positive deltas on the treatment version to confirm your change improved quality before promoting it.
+
+## Validating evaluations in the Foundry portal
+
+Beyond the GitHub Actions logs, you can inspect evaluation results directly in the Azure Foundry portal. Navigate to the **Evaluations** tab in your Foundry project to see all evaluation runs, their status, the agent version tested, and when they were created.
+
+![Foundry Evaluation Portal](../../images/foundryevaluationportal.png)
+
+Click on the evaluation to drill into the detailed results. This view shows the **overall metric results** (pass rates per evaluator) and the **detailed metrics result** table listing every query, the agent version used, the conversation ID, and the response — allowing you to inspect individual interactions and diagnose failures.
+
+![Analyze Result](../../images/analyzeresult.png)
+
+### Analyzing failures
+
+Scrolling through the detailed metrics, you can inspect individual evaluator verdicts and their reasoning. Each evaluator provides a **Pass/Fail** score along with a written justification explaining the decision.
+
+![Analyze Failure](../../images/analyzefailure.png)
+
+In this example, the user asked about a specific client (Robert Kim), but the agent called `get_all_clients()` — retrieving every client record — before filtering to the requested one. The `task_adherence` evaluator flagged this as a **Fail** because the agent exposed private financial information of unrelated clients, which is unnecessary data disclosure when the user only asked about a single person.
+
+This type of insight is exactly what evaluation runs are designed to surface. The failure highlights that the MCP tool or the agent prompt needs refinement — for instance, using `get_client_by_name` instead of fetching the entire client list. By iterating on the tool implementation or prompt instructions and re-running the pipeline, you can verify the fix resolves the issue and confirm the `task_adherence` score improves in the next version comparison.
