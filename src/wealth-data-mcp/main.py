@@ -85,7 +85,7 @@ class FixAcceptHeaderMiddleware(BaseHTTPMiddleware):
                 request.scope["headers"] = raw_headers
         return await call_next(request)
 
-app = mcp.http_app()
+app = mcp.http_app(stateless_http=True,transport='streamable-http')
 app.add_middleware(FixAcceptHeaderMiddleware)
 
 # Mount health check endpoint for Azure App Service health probes
