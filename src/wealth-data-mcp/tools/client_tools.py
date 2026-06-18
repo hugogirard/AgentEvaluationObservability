@@ -50,7 +50,7 @@ async def get_all_clients(
 async def get_client_by_id(
     client_id: str,
     repository: ClientRepository = Depends(get_client_repository),
-) -> Client:
+) -> Client | str:
     """Retrieve a single client portfolio by their unique client ID.
     Use this to get full details of a specific client including holdings, balances,
     risk profile, and account type.
@@ -66,7 +66,10 @@ async def get_client_by_id(
         span.set_attribute("mcp.tool.client_id", client_id)
 
     try:
-        return await repository.get_by_id(client_id)
+        result = await repository.get_by_id(client_id)
+        if result is None:
+            return f"No client found with ID '{client_id}'."
+        return result
     finally:
         if span_context:
             span_context.__exit__(None,None,None)
@@ -75,9 +78,9 @@ async def get_client_by_id(
 
 @client_mcp.tool()
 async def get_clients_by_advisor(
-    advisor_id: AdvisorId,
+    advisor_id: str,
     repository: ClientRepository = Depends(get_client_repository),
-) -> list[Client]:
+) -> list[Client] | str:
     """Find all clients assigned to a specific advisor.
     Use this to get an advisor's full book of business or to review
     all portfolios under their management.
@@ -85,16 +88,22 @@ async def get_clients_by_advisor(
     Args:
         advisor_id: The advisor identifier — one of "ADV-118", "ADV-205", or "ADV-301".
     """
+    valid_ids = {e.value for e in AdvisorId}
+    if advisor_id not in valid_ids:
+        return f"Unknown advisor '{advisor_id}'. Valid advisor IDs are: {', '.join(sorted(valid_ids))}."
 
     span_context = tracer.start_as_current_span("mcp_tool_get_clients_by_advisor") if tracer else None
     if span_context:
         span_context.__enter__()
         span = trace.get_current_span()      
         span.set_attribute("mcp.tool", "get_clients_by_advisor")  
-        span.set_attribute("mcp.tool.advisor_id", advisor_id.value)
+        span.set_attribute("mcp.tool.advisor_id", advisor_id)
 
     try:
-        return await repository.get_by_advisor(advisor_id.value)
+        results = await repository.get_by_advisor(advisor_id)
+        if not results:
+            return f"No clients found for advisor '{advisor_id}'."
+        return results
     finally:
         if span_context:
             span_context.__exit__(None,None,None)
@@ -103,9 +112,9 @@ async def get_clients_by_advisor(
 
 @client_mcp.tool()
 async def get_clients_by_risk_profile(
-    risk_profile: RiskProfile,
+    risk_profile: str,
     repository: ClientRepository = Depends(get_client_repository),
-) -> list[Client]:
+) -> list[Client] | str:
     """Find all clients matching a given risk profile.
     Use this to identify clients within a specific risk category,
     for example when reviewing portfolio drift across a risk segment.
@@ -113,15 +122,22 @@ async def get_clients_by_risk_profile(
     Args:
         risk_profile: The risk profile to filter by — must be one of "Aggressive", "Conservative", or "Moderate". Do NOT pass fund risk levels such as "High", "Low", "Medium", etc. — those are different from client risk profiles.
     """
+    valid_profiles = {e.value for e in RiskProfile}
+    if risk_profile not in valid_profiles:
+        return f"Unknown risk profile '{risk_profile}'. Valid profiles are: {', '.join(sorted(valid_profiles))}."
+
     span_context = tracer.start_as_current_span("mcp_tool_get_clients_by_risk_profile") if tracer else None
     if span_context:
         span_context.__enter__()
         span = trace.get_current_span()      
         span.set_attribute("mcp.tool", "get_clients_by_risk_profile")  
-        span.set_attribute("mcp.tool.risk_profile", risk_profile.value)
+        span.set_attribute("mcp.tool.risk_profile", risk_profile)
     
     try:
-        return await repository.get_by_risk_profile(risk_profile.value)
+        results = await repository.get_by_risk_profile(risk_profile)
+        if not results:
+            return f"No clients found with risk profile '{risk_profile}'."
+        return results
     finally:
         if span_context:
             span_context.__exit__(None,None,None)
