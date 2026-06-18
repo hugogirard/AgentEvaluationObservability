@@ -38,6 +38,8 @@ jobs:
                     echo "MCP_SERVER_NAME=$(jq -r '.mcp_server_name.value' outputs.json)" >> $GITHUB_OUTPUT
                     echo "PROJECT_ENDPOINT=$(jq -r '.project_endpoint.value' outputs.json)" >> $GITHUB_OUTPUT
                     echo "CHAT_COMPLETION_MODEL=$(jq -r '.chat_completion_model.value' outputs.json)" >> $GITHUB_OUTPUT
+                    echo "COSMOS_DB_RESOURCE_NAME=$(jq -r '.cosmos_db_resource_name.value' outputs.json)" >> $GITHUB_OUTPUT
+                    echo "RESOURCE_GROUP_NAME=$(jq -r '.resource_group_name.value' outputs.json)" >> $GITHUB_OUTPUT
 
             - name: Set secrets using gh CLI
               env:
@@ -47,3 +49,5 @@ jobs:
                   gh secret set MCP_SERVER_NAME --body "${{ steps.createResources.outputs.MCP_SERVER_NAME }}"
                   gh secret set PROJECT_ENDPOINT --body "${{ steps.createResources.outputs.PROJECT_ENDPOINT }}"
                   gh secret set CHAT_COMPLETION_MODEL --body "${{ steps.createResources.outputs.CHAT_COMPLETION_MODEL }}"
+                  gh secret set COSMOS_DB_RESOURCE_NAME --body "${{ steps.createResources.outputs.COSMOS_DB_RESOURCE_NAME }}"
+                  gh secret set RESOURCE_GROUP_NAME --body "${{ steps.createResources.outputs.RESOURCE_GROUP_NAME }}"

@@ -180,6 +180,8 @@ module rbac 'core/RBAC/acr.bicep' = {
 }
 
 output container_registry_name string = registryName
+output cosmos_db_resource_name string = cosmos.outputs.resourceName
 output mcp_server_name string = mcpServer.outputs.resourceName
 output project_endpoint string = foundry.outputs.projectEndpoint
 output chat_completion_model string = chatCompleteionDeploymentName
+output resource_group_name string = rg.name

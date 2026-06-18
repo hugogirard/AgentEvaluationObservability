@@ -40,9 +40,8 @@ def main():
 
     try:
         existing_versions = project.agents.list_versions(agent_name=AGENT_NAME,
-                                                        limit=LIMIT_VERSION_RETRIEVAL,
                                                         order='desc')
-        previous_versions = [v.version for v in existing_versions]
+        previous_versions = [v.version for v in existing_versions][:LIMIT_VERSION_RETRIEVAL]
         previous_versions.reverse()
     except Exception:
         previous_versions = []
