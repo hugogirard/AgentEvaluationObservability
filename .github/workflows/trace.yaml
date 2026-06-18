@@ -1,0 +1,38 @@
+name: Generate Traces
+
+on:
+    workflow_dispatch:
+
+jobs:
+    generate-trace:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v6
+
+            - name: Set up Python
+              uses: actions/setup-python@v6
+              with:
+                  python-version: "3.11"
+
+            - name: Install the latest version of uv
+              uses: astral-sh/setup-uv@v7
+
+            - name: Install dependencies
+              run: |
+                  uv sync
+              working-directory: utility
+
+            - name: Azure Login
+              uses: Azure/login@v2
+              with:
+                  creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+            - name: Run agents creation script
+              id: create-agent
+              env:
+                  PROJECT_ENDPOINT: ${{ secrets.PROJECT_ENDPOINT }}
+              run: |
+                  uv run generate_trace.py
+              working-directory: utility

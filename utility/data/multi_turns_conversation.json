@@ -1,0 +1,194 @@
+[
+    {
+        "name": "portfolio-drift-investigation",
+        "turns": [
+            {
+                "query": "Pull up Emma Dubois' portfolio and tell me her current allocation breakdown."
+            },
+            {
+                "query": "That looks heavily tilted toward equities for a moderate client. What's her equity percentage versus the typical moderate target?"
+            },
+            {
+                "query": "What funds in our catalog would help bring her back toward a 50/50 balance?"
+            },
+            {
+                "query": "If we moved 20% of her GEG-7200 position into the Corporate Bond Fund, what would the new weights look like?"
+            }
+        ]
+    },
+    {
+        "name": "advisor-book-smallest-client",
+        "turns": [
+            {
+                "query": "Show me all the clients managed by advisor ADV-118."
+            },
+            {
+                "query": "Which of those clients has the smallest total balance?"
+            },
+            {
+                "query": "What does that client's portfolio look like? Are there any concerns given their risk profile?"
+            }
+        ]
+    },
+    {
+        "name": "fund-suitability-for-underinvested-client",
+        "turns": [
+            {
+                "query": "What's Raj Kapoor's current risk profile and allocation?"
+            },
+            {
+                "query": "He seems underweight equities for a moderate client. What equity funds do we have that match a medium risk level?"
+            },
+            {
+                "query": "What's the MER and YTD return on the Balanced Growth Fund?"
+            },
+            {
+                "query": "And how does that compare to the Canadian Dividend ETF?"
+            }
+        ]
+    },
+    {
+        "name": "add-holding-workflow",
+        "turns": [
+            {
+                "query": "Look up Michael Santos for me."
+            },
+            {
+                "query": "Does the Canadian Real Estate Fund exist in our catalog? What's its risk level?"
+            },
+            {
+                "query": "Add 500 units of REIT-900 to Michael Santos' portfolio."
+            },
+            {
+                "query": "Show me his updated portfolio now."
+            }
+        ]
+    },
+    {
+        "name": "concentration-risk-remediation",
+        "turns": [
+            {
+                "query": "I remember Lisa Patel has a concentration issue. Can you confirm what her portfolio looks like?"
+            },
+            {
+                "query": "83% in a single fund is way too high. What other funds would be appropriate for an aggressive investor?"
+            },
+            {
+                "query": "If we reduce her CDIV position to 40% and split the rest between GEG-7200 and USIDX-500, does that make sense for her risk profile?"
+            }
+        ]
+    },
+    {
+        "name": "conservative-rrif-comparison",
+        "turns": [
+            {
+                "query": "I want to compare two conservative RRIF clients. Who do we have with that combination?"
+            },
+            {
+                "query": "Compare Sarah Thompson's holdings with Anne Bergström's. Which one is better diversified?"
+            },
+            {
+                "query": "Anne only holds a single GIC — what low-risk options could we suggest for her when it matures?"
+            }
+        ]
+    },
+    {
+        "name": "error-recovery-wrong-client-id",
+        "turns": [
+            {
+                "query": "Show me the portfolio for client 2500."
+            },
+            {
+                "query": "Sorry, I meant client 2340. Can you pull that one up instead?"
+            },
+            {
+                "query": "What's Andrew Wilson's unrealized gain across all his holdings?"
+            },
+            {
+                "query": "Is his allocation appropriate for a moderate investor?"
+            }
+        ]
+    },
+    {
+        "name": "gic-maturity-reinvestment-planning",
+        "turns": [
+            {
+                "query": "Tell me about Anne Bergström's account."
+            },
+            {
+                "query": "Her GIC is maturing soon. What's the current rate on the Premium GIC 18-Month if she wanted to roll it over?"
+            },
+            {
+                "query": "What other very low or low risk alternatives do we have in the fund catalog?"
+            },
+            {
+                "query": "If she split the proceeds 60% into the Short-Term Bond Fund and 40% into the High-Interest Savings Fund, what would that look like?"
+            }
+        ]
+    },
+    {
+        "name": "out-of-scope-then-fund-catalog",
+        "turns": [
+            {
+                "query": "What's the weather going to be like in Toronto this weekend?"
+            },
+            {
+                "query": "Fair enough. Can you show me all the fund categories available in the catalog instead?"
+            },
+            {
+                "query": "Which funds fall under the Fixed Income category?"
+            },
+            {
+                "query": "What's the minimum investment for each of those?"
+            }
+        ]
+    },
+    {
+        "name": "moderate-clients-rebalancing-review",
+        "turns": [
+            {
+                "query": "Which moderate risk clients are managed by ADV-301?"
+            },
+            {
+                "query": "Of those, which ones have allocation drift — meaning their equity exposure is significantly above or below 50%?"
+            },
+            {
+                "query": "Tell me more about Fatima Al-Hassan's portfolio. What does her allocation look like in detail?"
+            }
+        ]
+    },
+    {
+        "name": "unrealized-gains-comparison",
+        "turns": [
+            {
+                "query": "Pull up Thomas Wright's portfolio."
+            },
+            {
+                "query": "What's his total unrealized gain across all positions?"
+            },
+            {
+                "query": "Now show me Sophie Martin's portfolio."
+            },
+            {
+                "query": "How do their unrealized gains compare? Who has performed better in dollar terms?"
+            }
+        ]
+    },
+    {
+        "name": "new-rrif-client-fund-selection",
+        "turns": [
+            {
+                "query": "I'm onboarding a new conservative RRIF client. What funds do we offer with very low or low risk?"
+            },
+            {
+                "query": "What are the minimum investments for each of those?"
+            },
+            {
+                "query": "If the client has 200,000 CAD to invest, suggest a split across those funds that prioritizes capital preservation with some income."
+            },
+            {
+                "query": "Which of our existing conservative RRIF clients has a similar allocation I could use as a reference?"
+            }
+        ]
+    }
+]
