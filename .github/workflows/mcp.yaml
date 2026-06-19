@@ -2,11 +2,6 @@ name: Deploy MCP Server
 
 on:
     workflow_dispatch:
-    push:
-        branches:
-            - main
-        paths:
-            - "src/wealth-data-mcp/**"
 
 jobs:
     build-and-deploy-mcp-server:

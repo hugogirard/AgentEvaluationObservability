@@ -1,5 +1,52 @@
 # Agent Evaluation & Observability — Azure Foundry End-to-End Demo
 
+> 🎬 [Click here to watch the demo video](video/agent_hallucination_demo.mp4)
+
+### Without Evaluation — What Could Go Wrong?
+
+```mermaid
+flowchart LR
+    A[Developer changes prompt] --> B[Deploy blindly]
+    B --> C[Production 💥]
+
+    C -.-> D["⚠️ Hallucinated financial advice sent to clients"]
+    C -.-> E["⚠️ Tool calls fail silently — agent invents data"]
+    C -.-> F["⚠️ Regression undetected for weeks"]
+    C -.-> G["⚠️ No quality baseline — 'it works on my machine'"]
+```
+
+### With Azure Foundry Evaluation — Continuous Quality
+
+```mermaid
+flowchart LR
+    subgraph CICD ["🔄 CI/CD Evaluation"]
+        direction LR
+        PR[PR Opened] --> RunEval[Run Eval Dataset]
+        RunEval --> Compare[Compare Versions]
+        Compare --> Gate[Gate Pass/Fail]
+    end
+
+    subgraph Sampling ["📊 Sampling — Production Traffic"]
+        direction LR
+        Live[Live Calls] --> Sample[Sample % Traffic]
+        Sample --> Evaluate[Evaluate Quality]
+        Evaluate --> Metrics[📈 Metrics]
+    end
+
+    subgraph Scheduled ["⏰ Scheduled Evaluation"]
+        direction LR
+        Cron[Cron / Timer] --> FullTest[Full Test Run]
+        FullTest --> Trend[Trend Analysis]
+        Trend --> Alerts[🚨 Alerts]
+    end
+```
+
+> **Result:** Every change measured • Drift detected early • Quality proven
+
+<br/>
+
+---
+
 This repository demonstrates an end-to-end evaluation workflow for AI agents built with Azure Foundry Agent Service. It covers the full lifecycle: creating a versioned agent, connecting tools through MCP, running evaluation datasets, and tracking quality over time.
 
 ## Table of Contents
