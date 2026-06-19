@@ -1,6 +1,6 @@
 # Agent Evaluation & Observability — Azure Foundry End-to-End Demo
 
-> 🎬 [Click here to watch the demo video](video/agent_hallucination_demo.mp4)
+https://github.com/user-attachments/assets/bca2055d-c9dc-4c8f-b2f4-75423f2023f4
 
 ### Without Evaluation — What Could Go Wrong?
 
