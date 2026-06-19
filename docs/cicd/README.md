@@ -18,6 +18,7 @@ This job creates a new versioned agent in Azure Foundry and persists version met
    - Looks up the existing MCP server connection (`WEALTH-MCP-SERVER`).
    - Retrieves the most recent agent version (if any) for later comparison.
    - Creates a new agent version with the current prompt (`agents/prompt.txt`) and MCP tool configuration.
+   - Schedules a continuous evaluation rule that monitors real production traffic against the same quality evaluators (see [Continuous Evaluation](#continuous-evaluation) below).
    - Outputs a comma-separated list of agent versions (previous + new) as `AGENT_VERSIONS`, e.g. `WealthAgent:3,WealthAgent:4`.
 5. **Save agent version as secret** — persists `AGENT_VERSIONS` to a repository secret using the `PA_TOKEN` so downstream workflows and future runs can reference it.
 
@@ -147,3 +148,100 @@ Scrolling through the detailed metrics, you can inspect individual evaluator ver
 In this example, the user asked about a specific client (Robert Kim), but the agent called `get_all_clients()` — retrieving every client record — before filtering to the requested one. The `task_adherence` evaluator flagged this as a **Fail** because the agent exposed private financial information of unrelated clients, which is unnecessary data disclosure when the user only asked about a single person.
 
 This type of insight is exactly what evaluation runs are designed to surface. The failure highlights that the MCP tool or the agent prompt needs refinement — for instance, using `get_client_by_name` instead of fetching the entire client list. By iterating on the tool implementation or prompt instructions and re-running the pipeline, you can verify the fix resolves the issue and confirm the `task_adherence` score improves in the next version comparison.
+
+## Continuous Evaluation
+
+The batch evaluation in Job 2 tests the agent against a fixed dataset at deploy-time. It answers *"Is this version better than the last?"* but cannot cover the infinite variety of real user queries. **Continuous evaluation** fills this gap by scoring a sample of live production responses after deployment — catching edge cases, distribution shifts, and regressions that a static dataset cannot anticipate.
+
+### Why continuous evaluation?
+
+| | Batch Evaluation (Job 2) | Continuous Evaluation |
+|---|---|---|
+| **When** | At deploy-time, inside CI/CD | Post-deployment, ongoing |
+| **Data** | Fixed dataset (`cicd.json`) | Live user traffic |
+| **Purpose** | Regression gate before promotion | Detect drift and edge cases in production |
+| **Scope** | Controlled, repeatable queries | Unbounded real-world queries |
+| **Feedback loop** | Immediate — blocks bad versions | Delayed — surfaces issues over time |
+
+Batch evaluation tells you the agent is safe to deploy. Continuous evaluation tells you the agent **stays safe** once real users interact with it. Together they form a closed feedback loop: batch catches known regressions before release, and continuous evaluation discovers unknown issues after release that can then be added to the batch dataset for future runs.
+
+### How it works
+
+At the end of Job 1, the agent creation script calls `schedule_evaluation()` which sets up a continuous evaluation rule in Azure Foundry. The function is **idempotent** — if the rule already exists (checked by ID `continuous_evaluation_wealthagent_users`), it skips creation entirely.
+
+The setup performs two steps:
+
+1. **Create an OpenAI eval object** — registers the evaluation definition with 12 built-in evaluators (defined in `agents/evaluations/criteria.py`) and configures it to source data from live agent responses (`azure_ai_source` with scenario `responses`).
+
+2. **Create an evaluation rule** — attaches the eval object to a trigger that fires on every `RESPONSE_COMPLETED` event for the `WealthAgent`. The rule samples up to **10 evaluation runs per hour** to control cost while still providing meaningful coverage.
+
+![Scheduled Evaluation](../../images/scheduled_evaluation.png)
+
+### Evaluators
+
+The continuous evaluation uses the same 12 built-in evaluators as the batch evaluation, organized by category:
+
+| Category | Evaluator | What it measures |
+|----------|-----------|------------------|
+| **RAG** | `groundedness` | Are responses grounded in retrieved data? |
+| **RAG** | `relevance` | Is the response relevant to the query? |
+| **General Purpose** | `fluency` | Is the language natural and well-formed? |
+| **General Purpose** | `coherence` | Is the response logically consistent? |
+| **Agent System** | `task_completion` | Did the agent complete the requested task? |
+| **Agent System** | `task_adherence` | Did the agent follow its instructions? |
+| **Agent System** | `intent_resolution` | Did the agent correctly understand user intent? |
+| **Agent Process** | `tool_selection` | Did the agent pick the right tool? |
+| **Agent Process** | `tool_input_accuracy` | Were the tool inputs correct? |
+| **Agent Process** | `tool_output_utilization` | Did the agent use the tool output effectively? |
+| **Agent Process** | `tool_call_success` | Did the tool call succeed? |
+| **Agent Process** | `tool_call_accuracy` | Were tool calls accurate overall? |
+
+![Criteria](../../images/criteria.png)
+
+### Viewing continuous evaluation results
+
+Continuous evaluation results are available in the Azure Foundry portal under the **Monitor** tab of your agent. Unlike batch evaluations which appear as discrete runs tied to a pipeline execution, continuous evaluations accumulate results over time as real users interact with the agent.
+
+![Agent Monitoring](../../images/agent_monitoring.png)
+
+You can inspect individual scored responses, filter by evaluator, and identify patterns in failures — for example, discovering that a particular class of user query consistently scores low on `tool_selection`. These insights feed directly back into prompt or tool improvements that are then validated by the batch evaluation in the next pipeline run.
+
+## Scheduled Evaluation
+
+In addition to CI/CD-triggered batch evaluations and continuous evaluation on live traffic, you can configure **scheduled evaluations** that run an existing dataset against the agent on a recurring frequency — for example, daily or weekly. This provides a regular quality heartbeat without requiring a code change or pipeline trigger.
+
+### Why scheduled evaluation?
+
+Scheduled evaluations complement the other two approaches:
+
+| | Batch (CI/CD) | Continuous | Scheduled |
+|---|---|---|---|
+| **Trigger** | Code change | Live user request | Time-based (cron) |
+| **Data** | Fixed dataset | Live traffic | Fixed dataset |
+| **Frequency** | On every pipeline run | Ongoing (sampled) | Recurring (e.g. daily) |
+| **Use case** | Pre-deployment gate | Post-deployment drift detection | Ongoing regression monitoring without code changes |
+
+Even when no code is changing, the agent's behavior can shift due to model updates, infrastructure changes, or upstream data modifications. A scheduled evaluation running the same dataset on a regular cadence ensures you detect these silent regressions early — before users report them.
+
+### How to configure
+
+The Azure AI Foundry SDK does not currently offer full support for creating scheduled evaluations programmatically. The recommended approach is to configure them directly in the **Azure Foundry portal**:
+
+1. Navigate to your Foundry project and open the **Evaluations** tab.
+2. Select **Scheduled evaluations** and create a new schedule.
+3. Choose the existing dataset (e.g. `cicd.json` — the same one used in the CI/CD pipeline) as the data source.
+4. Select the agent version and evaluators to run.
+5. Set the recurrence (e.g. daily, every 12 hours, weekly).
+
+![Scheduled Evaluation](../../images/scheduled_evaluation.png)
+
+Once configured, the portal runs the evaluation automatically at the specified frequency and stores results alongside your other evaluation runs.
+
+![Scheduled](../../images/scheduled.png)
+
+### When to use scheduled evaluations
+
+- **Model updates** — when your underlying model deployment is updated (e.g. a new GPT version), scheduled evaluations immediately surface any quality changes without waiting for a code push.
+- **Data freshness checks** — if your agent relies on external data (e.g. fund catalog, client records), scheduled runs confirm the agent still performs correctly as that data evolves.
+- **Compliance and SLA monitoring** — for regulated environments, a daily evaluation run provides auditable evidence that the agent meets quality thresholds continuously.
+- **Confidence between releases** — during periods with no active development, scheduled evaluations confirm the agent hasn't degraded silently.
