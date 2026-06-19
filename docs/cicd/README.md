@@ -2,6 +2,23 @@
 
 The **Configure Wealth Agent** workflow ([`.github/workflows/agent.yaml`](../../.github/workflows/agent.yaml)) automates agent versioning and evaluation in a single pipeline. It is triggered manually via `workflow_dispatch` and contains two sequential jobs.
 
+```mermaid
+flowchart LR
+    A[workflow_dispatch] --> B[Create Agent Version]
+    B --> C[Evaluate baseline vs treatment]
+    C --> D[Results & Comparison]
+    B --> E[Schedule Continuous Eval]
+```
+
+## Prerequisites
+
+Before running this workflow, complete **Steps 1–6** in the [Deployment Guide](../deployment/README.md):
+
+1. Fork the repository and configure `AZURE_CREDENTIALS` and `PA_TOKEN` secrets.
+2. Run the **Create Azure resources** workflow (provisions infrastructure and auto-sets `PROJECT_ENDPOINT`, `CHAT_COMPLETION_MODEL`, and other secrets).
+3. Run the **Load data in CosmosDB** workflow (seeds the database with client and fund data).
+4. Run the **Deploy MCP Server** workflow (builds and deploys the MCP server, which registers the `WEALTH-MCP-SERVER` connection in Foundry).
+
 ## Job 1 — Configure Foundry Agent
 
 **Job name:** `configure-foundry-agents`
@@ -51,7 +68,7 @@ This means every pipeline run answers the question: *"Did this change make the a
 
 ### Evaluators
 
-The evaluation dataset (`evaluation/dataset/cicd.json`) configures 14 built-in evaluators, each with a passing threshold of 3:
+The evaluation dataset (`evaluation/dataset/cicd.json`) configures 12 built-in evaluators, each with a passing threshold of 3:
 
 | Evaluator | What it measures |
 |-----------|-----------------|
@@ -67,8 +84,6 @@ The evaluation dataset (`evaluation/dataset/cicd.json`) configures 14 built-in e
 | `relevance` | Is the response relevant to the query? |
 | `intent_resolution` | Did the agent correctly understand user intent? |
 | `tool_call_accuracy` | Were tool calls accurate overall? |
-| `tool_call_success` | Did the tool calls execute successfully? |
-| `task_completion` | Did the agent fully complete the task? |
 
 ### Test queries
 
@@ -82,7 +97,7 @@ The dataset includes a mix of:
 
 ## Execution time
 
-A full pipeline run typically takes **15–20 minutes**. The majority of the time is spent in Job 2, where each query is sent to every agent version and scored by all 14 evaluators using the judge model.
+A full pipeline run typically takes **15–20 minutes**. The majority of the time is spent in Job 2, where each query is sent to every agent version and scored by all 12 evaluators using the judge model.
 
 ## Viewing results
 

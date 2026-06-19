@@ -52,7 +52,13 @@ The workflow also writes these repository secrets:
 - PROJECT_ENDPOINT
 - CHAT_COMPLETION_MODEL
 
-## 5. Run Deploy MCP Server Workflow
+## 5. Run Load Data in CosmosDB Workflow
+
+Go to Actions -> Load data in CosmosDB -> Run workflow on main.
+
+This workflow seeds the Cosmos DB database with client and fund data required by the MCP server. It retrieves the connection string at runtime using the `COSMOS_DB_RESOURCE_NAME` and `RESOURCE_GROUP_NAME` secrets (set automatically by Step 4), then runs `utility/load_data.py` to populate the collections.
+
+## 6. Run Deploy MCP Server Workflow
 
 Go to Actions -> Deploy MCP Server -> Run workflow on main.
 
@@ -64,7 +70,7 @@ This workflow:
 
 After deployment, the MCP server exposes portfolio tools used by the Foundry agent during runtime and evaluation.
 
-## 6. Run Configure Wealth Agent Workflow
+## 7. Run Configure Wealth Agent Workflow
 
 Go to Actions -> Configure Wealth Agent -> Run workflow on main.
 
