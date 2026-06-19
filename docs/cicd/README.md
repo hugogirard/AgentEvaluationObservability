@@ -245,3 +245,101 @@ Once configured, the portal runs the evaluation automatically at the specified f
 - **Data freshness checks** — if your agent relies on external data (e.g. fund catalog, client records), scheduled runs confirm the agent still performs correctly as that data evolves.
 - **Compliance and SLA monitoring** — for regulated environments, a daily evaluation run provides auditable evidence that the agent meets quality thresholds continuously.
 - **Confidence between releases** — during periods with no active development, scheduled evaluations confirm the agent hasn't degraded silently.
+
+## Rubric Evaluators
+
+All evaluators used in this repository — both in the CI/CD batch evaluation and in continuous evaluation — are **built-in evaluators** provided by Azure Foundry. They measure generic quality dimensions (groundedness, fluency, tool selection, etc.) that apply to any agent. However, every agent has domain-specific quality criteria that generic evaluators cannot capture. This is where **rubric evaluators** come in.
+
+> **Note:** Rubric evaluators are currently in **public preview** and are not yet available in all Azure regions. This repository does not include rubric evaluators in its pipeline for this reason. Once the feature reaches general availability in your region, adding a rubric evaluator to both CI/CD and continuous evaluation is strongly recommended.
+
+### What is a rubric evaluator?
+
+A rubric evaluator scores an agent response against **custom, weighted criteria that you define**, using an LLM as the judge. Instead of relying on a fixed definition of "good," you describe exactly what quality means for your use case.
+
+A rubric consists of scoring **dimensions** — each with:
+
+| Field | Description |
+|-------|-------------|
+| `id` | A stable, human-readable identifier (e.g. `policy_enforcement`) |
+| `description` | What this criterion measures — a clear, specific quality dimension |
+| `weight` | Relative importance (higher weight = more influence on the overall score) |
+| `always_applicable` | When `true`, the judge always scores this criterion regardless of relevance |
+
+The LLM judge scores each applicable dimension from **1 to 5**. The overall rubric score is the **weighted average** of those scores, normalized to a 0–1 range. A configurable pass threshold (default 0.5) determines pass/fail.
+
+### Why use rubric evaluators?
+
+Built-in evaluators answer generic questions like *"Is the response fluent?"* or *"Did the agent use the right tool?"*. Rubric evaluators answer domain-specific questions like:
+
+- Does the agent enforce business rules (e.g. maximum investment thresholds, risk profile matching)?
+- Does the agent protect client data by only retrieving information relevant to the query?
+- Does the agent follow the firm's communication tone and compliance requirements?
+
+For the Wealth Agent, a rubric could include dimensions such as `data_minimization` (only retrieve the specific client asked about), `risk_suitability` (recommend funds matching the client's risk profile), and `regulatory_compliance` (include required disclaimers).
+
+### Creating a rubric evaluator
+
+You can create rubric evaluators in the Azure Foundry portal in two ways:
+
+1. **Auto-generate (recommended)** — Select your Foundry agent or paste its system prompt and optionally attach production traces. The service generates a rubric grounded in your agent's actual behavior. You then review, adjust weights, and refine descriptions.
+
+2. **Manual creation** — Define each dimension's `id`, `description`, and `weight` yourself. Use this when you already have quality criteria defined elsewhere.
+
+#### Choosing a judge model
+
+Not all models perform equally as rubric judges. For best results:
+
+| Rank | Model | Recommendation |
+|------|-------|----------------|
+| 1–5 | `gpt-5.5`, `gpt-5.4`, `gpt-5.4-nano`, `gpt-5.4-mini`, `gpt-5.2` | Recommended |
+| 6–7 | `gpt-4.1`, `gpt-4o` | Acceptable |
+| 8 | `gpt-4o-mini` | Not recommended |
+
+### Example: Wealth Agent rubric
+
+A hypothetical rubric for this repository's Wealth Agent might look like:
+
+```json
+[
+  {
+    "id": "data_minimization",
+    "description": "Only retrieves client data specifically relevant to the user's query. Does not call get_all_clients when a targeted lookup is available.",
+    "weight": 9
+  },
+  {
+    "id": "risk_suitability",
+    "description": "Fund recommendations match the client's stated risk profile. Does not suggest aggressive funds to conservative investors.",
+    "weight": 7
+  },
+  {
+    "id": "tool_precision",
+    "description": "Calls the most specific tool available with correct parameters. Avoids unnecessary or redundant tool calls.",
+    "weight": 6
+  },
+  {
+    "id": "advisory_tone",
+    "description": "Responds in a professional, helpful tone appropriate for financial advisory. Avoids casual language or speculative statements.",
+    "weight": 3
+  },
+  {
+    "id": "general_quality",
+    "description": "Other important quality factors not already covered by the listed criteria.",
+    "weight": 5,
+    "always_applicable": true
+  }
+]
+```
+
+### Using rubric evaluators in evaluation
+
+Rubric evaluators can be used in all three evaluation modes:
+
+- **CI/CD batch evaluation** — add the rubric evaluator alongside built-in evaluators in your dataset configuration.
+- **Continuous evaluation** — attach the rubric evaluator to your evaluation rule so live traffic is scored against your custom criteria.
+- **Scheduled evaluation** — include the rubric in your scheduled evaluation configuration in the portal.
+
+Once configured, the rubric evaluator returns per-dimension scores with reasons, an overall weighted score, and a pass/fail label — just like built-in evaluators but tailored to your exact quality standards.
+
+![Rubric Evaluation](../../images/rubric_evluation.png)
+
+For more details, see the [official documentation](https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/rubric-evaluators).
